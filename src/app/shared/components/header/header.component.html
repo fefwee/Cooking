@@ -1,0 +1,41 @@
+<header>
+  <div class="header container">
+    <div class="logo_header">
+      <img src="../../../assets/Foodie.png" alt="">
+    </div>
+    <nav class="list_header">
+      <ul class="flex_header">
+        <li>Главная</li>
+        <li>Каталог рецептов</li>
+      </ul>
+    </nav>
+    <div class="login_header" *ngIf="status">
+      <button mat-flat-button color="primary">Вход в аккаунт</button>
+    </div>
+    <div class="flex_header" *ngIf="!status" (click)="toggleActiveBlock()">
+      <div class="user_header">
+        <img src="../../../../assets/user.png" alt="">
+      </div>
+      <div>
+        <div class="flex_header">
+          <div class="header_logo_user">
+            123
+          </div>
+          <div class="header_user_descriptiion">
+            <ul>
+              <li>Ivanov Ivan</li>
+              <li>Пользователь</li>
+            </ul>
+          </div>
+        </div>
+        <div class="header_bottom_block" *ngIf="activeBlock">
+          <ul>
+            <li>Вы вошли как</li>
+            <li>Настройки аккаунта</li>
+            <li>Выход</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
