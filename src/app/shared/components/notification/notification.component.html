@@ -1,1 +1,17 @@
-<p>notification works!</p>
+<div  class="{{visible ? 'wrapper_notif active' : 'wrapper_notif noactive'}} "
+      style="{{error ? ' background-color: rgba(254, 226, 226, 1)':''}}"  #close>
+  <div class="notif_block">
+    <div class="logo" *ngIf="!error">
+      <img src="../../../../assets/check.png" alt="">
+    </div>
+    <div class="notif_desc">
+      <ul>
+        <li>{{ name }}</li>
+        <li>{{ desc }}</li>
+      </ul>
+    </div>
+    <div class="notif_close"  (click)="closeNitif()">
+      <img src="../../../../assets/close.png" alt="">
+    </div>
+  </div>
+</div>

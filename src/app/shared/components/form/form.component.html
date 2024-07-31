@@ -1,0 +1,99 @@
+<div class="auth_wrapper">
+  <h2 *ngIf="auth">Войдите в ваш аккаунт</h2>
+  <h2 *ngIf="register">Зарегистрируйте ваш аккаунт</h2>
+  <div class="auth_container">
+    <form [formGroup]="form">
+      <div class="auth_block">
+        <label>Логин</label>
+        <div class="input-container">
+          <input type="text"
+                 formControlName="login"
+          />
+          <span class="err_img" *ngIf="!form.controls['login'].valid && form.controls['login'].touched">
+          </span>
+        </div>
+      </div>
+      <div class="auth_block">
+        <label>Пароль</label>
+        <div class="input-container">
+          <input type="password"
+                 formControlName="password"
+          />
+          <span class="err_img" *ngIf="!form.controls['password'].valid && form.controls['password'].touched">
+          </span>
+        </div>
+      </div>
+      <div class="auth_hidden" *ngIf="auth">
+        <div class="registration_link">
+          <div class="check_block">
+            <input type="checkbox"
+                   formControlName="fastSession">
+            <span>Быстрая сессия</span>
+          </div>
+          <div>
+            <a
+              routerLink='/registration'
+              class="auth_string_register">
+              Зарегистрироваться
+            </a>
+          </div>
+        </div>
+        <div class="submit">
+          <button mat-flat-button color="primary" [disabled]="!form.valid" (click)="submitAuth()">Вход</button>
+        </div>
+        <div class="auth_line_block">
+          <span class="auth_line"></span>
+          <span class="middle_auth_line">Или войти через</span>
+          <span class="auth_line"></span>
+        </div>
+        <div class="auth_social_icon">
+          <img src="../../../../assets/soc.png" alt="">
+        </div>
+      </div>
+
+      <div *ngIf="register">
+        <div class="auth_block">
+          <label>Имя</label>
+          <div class="input-container">
+            <input type="text"
+                   formControlName="name"
+            />
+            <span class="err_img" *ngIf="!form.controls['name'].valid && form.controls['name'].touched">
+          </span>
+          </div>
+        </div>
+        <div class="auth_block">
+          <label>Фамилия</label>
+          <div class="input-container">
+            <input type="text"
+                   formControlName="surname"
+            />
+            <span class="err_img" *ngIf="!form.controls['surname'].valid && form.controls['surname'].touched">
+
+          </span>
+          </div>
+        </div>
+        <div class="auth_block">
+          <label>Отчество (при наличии)</label>
+          <div class="input-container">
+            <input type="text"
+                   formControlName="secondname"
+            />
+            <span class="err_img" *ngIf="!form.controls['secondname'].valid && form.controls['secondname'].touched">
+          </span>
+          </div>
+        </div>
+        <div class="submit"
+        >
+          <button
+            mat-flat-button
+            color="primary"
+            [disabled]="!form.valid"
+            (click)="submitRegister()"
+          >Зарегистрироваться
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

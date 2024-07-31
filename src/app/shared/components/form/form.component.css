@@ -1,0 +1,136 @@
+.auth_block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+}
+
+.auth_block label {
+  margin-bottom: 5px;
+}
+
+.auth_block .err_img {
+  position: absolute;
+
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-container .err_img {
+  position: absolute;
+  right: 10px;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.err_img {
+
+ width: 16px;
+ height: 16px;
+  background-image:url("../../../../assets/err.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.auth_wrapper {
+  margin:50px auto;
+  width: 448px;
+  max-height: 492px auto;
+}
+
+.auth_container {
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.auth_wrapper h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form {
+  padding: 32px 40px 32px 40px ;
+}
+
+.auth_block input {
+  min-width:100%;
+  padding: 9px 13px 9px 13px;
+  border-radius: 6px 6px 6px 6px;
+  border: 1px solid var(--gray-300, #d1d5db);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.registration_link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+.check_block input {
+  margin-right: 10px;
+}
+
+.submit button {
+  width: 100%;
+}
+
+.auth_line {
+  min-height: 1px;
+  width: 118px;
+  background-color: rgba(209, 213, 219, 1);
+}
+
+.middle_auth_line {
+  text-align:center;
+  flex-grow: 1;
+    font-size: 14px;
+  color:rgba(107, 114, 128, 1);
+}
+
+
+.auth_line_block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:20px 0;
+}
+
+.auth_social_icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 9px 0 9px 12px;
+  border-radius: 6px 6px 6px 6px;
+  border: 1px solid var(--gray-300, #d1d5db);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.auth_social_icon img {
+  max-width: 20px;
+  max-height: 20px;
+}
+
+.submit {
+  margin-top: 10px;
+}
+
+input:focus {
+  outline: none;
+}
+.error{
+  border:1px solid red;
+}
+.mat-flat-button {
+  color:rgba(58, 51, 149, 1);
+}
+.auth_string_register{
+  color:rgba(58, 51, 149, 1);
+}

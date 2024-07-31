@@ -1,0 +1,21 @@
+.footer_flex{
+  display: flex;
+  align-items:center;
+  justify-content:space-between;
+  padding: 50px 0;
+
+}
+.footer{
+  border-top:1px solid rgba(221, 221, 221, 1);
+}
+.flex{
+  display: flex;
+  align-items: center;
+}
+.flex img {
+  width: 24px;
+  height: 24px;
+}
+.flex img:not(:last-child){
+  margin-right: 15px;
+}
