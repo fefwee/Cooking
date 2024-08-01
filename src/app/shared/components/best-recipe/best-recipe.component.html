@@ -1,0 +1,13 @@
+<div class="wrapper_best">
+  <div class="best_header">
+    <h2>
+      Лучшие рецепты
+    </h2>
+    <p>На нашем сайте вы найдете лучшие рецепты, которые помогут вам создавать великолепные блюда и порадовать своих
+      близких и гостей своим кулинарным мастерством.</p>
+  </div>
+  <app-recipe-item [recipe]="recipe"
+                   (moreRecipeBtn) = addRecipe($event)
+                   [favoriteAddBtn] = true
+  ></app-recipe-item>
+</div>

@@ -1,0 +1,20 @@
+<div class="post_container">
+  <h3>Почему именно мы?</h3>
+  <div class="container">
+    <div *ngFor="let item of recipe" class="rer">
+      <div class="post_box">
+        <div class="post">
+          <div>
+            <span class="logo"></span>
+          </div>
+          <div>
+            <h6 class="title">{{ item.title }}</h6>
+            <p class="description">
+              {{ item.desc }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

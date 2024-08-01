@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {environment} from "../environment/environment";
+import {Recipe} from "../types/types";
+import {environment} from "../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,9 @@ export class GetRecipeService {
     this.url = environment.getRecipe;
   }
 
-  public getRecipe(limit?: number): Observable<any> {
+  public getRecipe(limit?: number): Observable<Recipe[]> {
     const url = limit ? `${this.url}?filter=${limit}` : this.url;
-    return this.http.get<any>(url);
+    return this.http.get<Recipe[]>(url);
   }
 
 }

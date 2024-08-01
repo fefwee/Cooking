@@ -1,0 +1,41 @@
+<div class="{{deliciousBlock ? 'wrapper_item_recipe_delicious container':'wrapper_item_recipe container'}}">
+  <div *ngFor="let item of recipe">
+    <div class="{{deliciousBlock ? 'background_wrapper_delicious':'background_wrapper'}}">
+      <ul class="container_item_recipe">
+        <div class="favorite_icon">
+          <div *ngIf="favoriteAddBtn" class="favorite_icon_block">
+            <img src="../../../../assets/active.png" alt="">
+          </div>
+          <div *ngIf="!favoriteAddBtn" class="favorite_icon_block">
+            <img src="../../../../assets/noactive.png" alt="">
+          </div>
+        </div>
+        <li>
+          <div class="logo">
+            <img src="{{item.image}}" alt="">
+          </div>
+        </li>
+        <li class="item_recipe_title">
+          <h4>
+            {{ item.title }}
+          </h4>
+        </li>
+        <li class="item_recipe_icons">
+        <span>
+          <img src="../../../../assets/Timer.png" alt="">
+          <p>{{ item.timeCooking }} Минут</p>
+        </span>
+          <span>
+          <img src="../../../../assets/ForkKnife.png" alt="">
+          <p>{{ item.tags[0] }}</p>
+        </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="btn_add" *ngIf="favoriteAddBtn">
+  <button class="btn_white" (click)="addRecipe()">
+    Посмотреть еще
+  </button>
+</div>

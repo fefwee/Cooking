@@ -1,0 +1,154 @@
+.container {
+  position: relative;
+  max-width: 100%;
+  height: 640px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  position: relative;
+  height: 100%;
+  margin: 0px 70px;
+}
+
+.btn_box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slide {
+  display: none;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.prev, .next {
+  border: none;
+  border-radius: 10px;
+  width: 20px;
+  height: 100%;
+  background-color: rgba(231, 250, 254, 1);
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide_container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.slide_content {
+  padding: 45px 50px;
+  border-radius: 20px 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: rgba(231, 250, 254, 1);
+  height: 100%;
+  max-width: 50%;
+}
+
+.top_block_slide h1 {
+  margin-bottom: 30px;
+}
+
+.top_block_slide p {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.slide_icons {
+  display: flex;
+  margin-bottom: 35px;
+}
+
+.slide_icons span {
+  padding: 8px 16px;
+  background-color: rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.slide_icons span:nth-child(1) {
+  margin-right: 16px;
+}
+
+.slide_icons img {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.logo_user {
+  max-width: 50px;
+  max-height: 50px;
+  margin-right: 16px;
+}
+
+.logo_user img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+}
+
+.slide_user_block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-block {
+  display: flex;
+  align-items: center;
+}
+
+.user_info ul li:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.user_info ul li :nth-child(2) {
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.slide_img {
+
+  max-width: 50%;
+  height: 100%;
+}
+
+.slide_img img {
+  border-radius: 0 20px 20px 0;
+  width: 100%;
+  height: 100%;
+}
+
+.btn_recipe button {
+  padding: 18px 37px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.btn_recipe button span img {
+  width: 24px;
+  height: 24px;
+}
+
+.btn_recipe .icon {
+  margin-left: 19px;
+  display: inline-flex;
+  align-items: center;
+}

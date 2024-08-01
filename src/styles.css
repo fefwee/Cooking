@@ -21,6 +21,7 @@ a {
 p {
   font-size: 16px;
   font-weight: 500;
+  color: rgba(107, 114, 128, 1);
 }
 
 img {
@@ -34,6 +35,29 @@ span {
 .container {
   max-width: 1280px;
   margin: 0 auto;
+
+}
+
+.btn_blue {
+  border-radius: 16px;
+  color: #fff;
+  background-color: rgba(58, 51, 149, 1);
+  align-items: center;
+  border: none;
+  font-size: 14px;
+  cursor:pointer;
+}
+
+.btn_white {
+  padding: 13px 25px;
+  border-radius: 6px;
+  color: rgba(55, 65, 81, 1);
+  background-color: #fff;
+  align-items: center;
+  border: 1px solid rgba(209, 213, 219, 1);
+  font-size: 14px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  cursor:pointer;
 }
 
 label {
@@ -41,9 +65,33 @@ label {
   font-weight: 500;
 }
 
+h1 {
+  font-size: 60px;
+  font-weight: 600;
+}
+
 h2 {
+  font-size: 48px;
+  font-weight: 600;
+}
+
+h3 {
   font-size: 28px;
   font-weight: 800;
   line-height: 36px;
   text-align: center;
+}
+
+h4 {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 16px;
+  font-weight: 700;
+}
+h6{
+  font-size: 18px;
+  font-weight: 500;
 }

@@ -1,0 +1,15 @@
+.best_header {
+  max-width: 706px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 150px;
+  margin-bottom: 68px;
+}
+
+.best_header h2 {
+  margin-bottom: 24px;
+}
+
+.best_header p {
+  color: rgba(96, 96, 96, 1);
+}

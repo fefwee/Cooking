@@ -11,6 +11,12 @@ import {RecomendetRecipeComponent} from "./components/recomendet-recipe/recomend
 import {InputTextModule} from 'primeng/inputtext';
 import { FormComponent } from './components/form/form.component';
 import {MatButtonModule} from '@angular/material/button';
+import { SliderComponent } from './components/slider/slider.component';
+import { BestRecipeComponent } from './components/best-recipe/best-recipe.component';
+import { RecipeItemComponent } from './components/recipe-item/recipe-item.component';
+import { DeliciousRecipesComponent } from './components/delicious-recipes/delicious-recipes.component';
+import { WhyWeComponent } from './components/why-we/why-we.component';
+import { GetNewRecipeComponent } from './components/get-new-recipe/get-new-recipe.component';
 
 @NgModule({
   imports: [
@@ -28,6 +34,12 @@ import {MatButtonModule} from '@angular/material/button';
     FooterComponent,
     HeaderComponent,
     FormComponent,
+    SliderComponent,
+    BestRecipeComponent,
+    RecipeItemComponent,
+    DeliciousRecipesComponent,
+    WhyWeComponent,
+    GetNewRecipeComponent,
   ],
   exports: [
     FooterComponent,
@@ -39,7 +51,12 @@ import {MatButtonModule} from '@angular/material/button';
     InputTextModule,
     FormComponent,
     MatButtonModule,
-    NotificationComponent
+    NotificationComponent,
+    SliderComponent,
+    BestRecipeComponent,
+    RecipeItemComponent,
+    DeliciousRecipesComponent,
+    WhyWeComponent
   ],
 })
 export class SharedModule {

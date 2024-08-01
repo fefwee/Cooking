@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="btn_box">
+    <button class="prev" (click)="prevSlide()"></button>
+    <button class="next" (click)="nextSlide()"></button>
+  </div>
+  <div class="wrapper" #wrapper>
+    <div class="slide" [ngClass]="{'active': currentIndex === i}" *ngFor="let slide of slides; let i = index">
+      <div class="slide_container">
+        <div class="slide_content">
+          <div class="top_block_slide">
+            <h1>{{ slide.title }}</h1>
+            <p>{{ slide.body }}</p>
+          </div>
+          <div class="bottom_block_slide">
+            <div class="slide_icons">
+              <span><img src="../../../../assets/Timer.png" alt="">{{ slide.timeCooking }} Минут</span>
+              <span><img src="../../../../assets/ForkKnife.png" alt="">{{ slide.tags[0] }}</span>
+            </div>
+            <div class="slide_user_block">
+              <div class="user-block">
+                <div class="logo_user">
+                  <img src="{{slide.author.avatar}}" alt="">
+                </div>
+                <div class="user_info">
+                  <ul>
+                    <li><h4>{{ slide.author.firstName }}{{ slide.author.lastName }}</h4></li>
+                    <li>{{ slide.createdOn | date: 'dd MMMM yyyy' }}</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="btn_recipe">
+                <button class="btn_blue">Посмотреть
+                  <span class="icon">
+                  <img src="../../../../assets/PlayCircle.png" alt="">
+        </span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slide_img">
+          <img src="{{slide.image}}" alt="">
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
