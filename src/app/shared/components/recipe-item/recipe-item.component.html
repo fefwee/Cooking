@@ -1,7 +1,7 @@
 <div class="{{deliciousBlock ? 'wrapper_item_recipe_delicious container':'wrapper_item_recipe container'}}">
   <div *ngFor="let item of recipe">
     <div class="{{deliciousBlock ? 'background_wrapper_delicious':'background_wrapper'}}">
-      <ul class="container_item_recipe">
+      <ul class="container_item_recipe" (click)="navigateToRecipeDetail(item.id)">
         <div class="favorite_icon">
           <div *ngIf="favoriteAddBtn" class="favorite_icon_block">
             <img src="../../../../assets/active.png" alt="">

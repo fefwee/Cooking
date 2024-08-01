@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {SharedModule} from "./shared/shared.module";
 import {AuthUserService} from "./services/auth-user.service";
 import {HttpClientModule} from "@angular/common/http";
+import { CatalogRecipesComponent } from './pages/catalog-recipes/catalog-recipes.component';
 
 @NgModule({
   declarations: [

@@ -12,7 +12,7 @@ import {NotificationService} from "../../services/notification.service";
 export class AuthComponent {
 
   constructor(private authService: AuthUserService,
-              private notificationService:NotificationService) {
+              private notificationService: NotificationService) {
   }
 
 
@@ -20,12 +20,10 @@ export class AuthComponent {
   }
 
   public authSubmit(user: UserAuth) {
-    console.log(user);
-
     this.authService.authUser(user).subscribe({
-      error:(err: HttpErrorResponse)=>{
+      error: (err: HttpErrorResponse) => {
         if (err.status !== 200) {
-          this.notificationService.setNotification('Ошибка','Неверный логин или пароль');
+          this.notificationService.setNotification('Ошибка', 'Неверный логин или пароль');
         }
       }
     })

@@ -10,6 +10,12 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'recipes',
+    loadChildren: () =>
+      import('./pages/catalog-recipes/catalog-recipes.module').then(
+        (m) => m.CatalogRecipesModule),
+  },
+  {
     path: 'registration',
     loadChildren: () =>
       import('./pages/register/register.module').then(

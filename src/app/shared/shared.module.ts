@@ -56,7 +56,8 @@ import { GetNewRecipeComponent } from './components/get-new-recipe/get-new-recip
     BestRecipeComponent,
     RecipeItemComponent,
     DeliciousRecipesComponent,
-    WhyWeComponent
+    WhyWeComponent,
+    GetNewRecipeComponent
   ],
 })
 export class SharedModule {

@@ -1,1 +1,27 @@
-<p>get-new-recipe works!</p>
+<div class="container">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="container_form">
+      <div class="description">
+        <h4>Хотите получать новые рецепты?</h4>
+        <p>
+          Не пропустите ни одного вкусного рецепта! Подпишитесь на нашу рассылку,
+          чтобы получать новые кулинарные идеи и рецепты прямо в свою почту.
+        </p>
+      </div>
+      <div class="mailing">
+        <input
+          type="email"
+          pInputText
+          placeholder="Введите ваш email..."
+          formControlName="email"
+        />
+        <button
+          type="submit"
+          class="btn_blue send"
+          [disabled]="registerForm.invalid"
+        >Подписаться
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

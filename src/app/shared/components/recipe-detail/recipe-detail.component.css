@@ -1,0 +1,259 @@
+.container_detail {
+  position: relative;
+  width: 100%;
+  margin-bottom: 69px;
+}
+
+.sub_container h1 {
+  margin-top: 80px;
+}
+
+.logo img {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 50px;
+}
+
+.logo h6 {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.32px;
+}
+
+.user_block {
+  margin-top: 48px;
+  display: flex;
+}
+
+.time {
+  border-right: 1px solid rgba(0, 0, 0, 0.10);
+  border-left: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.box {
+  margin-right: 16px;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  padding: 0 29px;
+}
+
+
+
+
+.sub_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.image_recipe {
+  max-width: 840px;
+  margin-right: 40px;
+
+}
+
+.print_box{
+  display:flex;
+
+}
+.print img {
+  width: 24px;
+  height: 24px;
+  background-color:rgba(231, 250, 254, 1);
+  border-radius:50px;
+  margin-bottom: 16px;
+}
+.print {
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+}
+.print p {
+  color:rgba(0, 0, 0, 1)
+}
+.print:not(:last-child){
+  margin-right: 30px;
+}
+
+.image_recipe img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+
+.description {
+  background-color: #E7FAFE;
+  border-radius: 25px;
+}
+
+.description_box {
+  position: relative;
+  min-width: 400px;
+  height: 100%;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.nutritional_flex p {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.72px;
+}
+
+.nutritional_flex span {
+  color: rgba(0, 0, 0, 0.60);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.72px;
+}
+
+.nutritional_flex {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 16px 16px 16px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.10);;
+}
+
+.image_block {
+  display: flex;
+}
+
+.values {
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.food {
+  color: rgba(0, 0, 0, 0.60);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  margin-top: 50px;
+}
+
+.ingridient_list {
+
+  max-width: 840px;
+  margin-top: 48px;
+}
+
+.ingridient_box h3 {
+  text-align: start;
+}
+
+.ingridient_box {
+  margin-right: 40px;
+}
+
+.round {
+  display: flex;
+  align-items: center;
+  padding: 32px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.other_recipe {
+  max-width: 400px;
+}
+
+.other_recipe h3 {
+  margin-bottom: 48px;
+  text-align: start;
+  color: #000;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -1.28px;
+}
+
+.select_section {
+  margin-top: 80px;
+  display: flex;
+}
+
+
+.checlStr:checked + .labelCheck {
+  color: rgba(218, 211, 211, 0.6);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  text-decoration-line: line-through;
+
+}
+
+
+[type=checkbox] {
+  width: 24px;
+  height: 24px;
+  color: #3D9A25;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  outline: 0;
+  flex-grow: 0;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  cursor: pointer;
+  margin-right: 24px;
+}
+
+
+[type=checkbox]::before {
+  content: "";
+  color: transparent;
+  display: block;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  border: 0;
+  background-color: transparent;
+  background-size: contain;
+  box-shadow: inset 0 0 0 1px #CCD3D8;
+}
+
+[type=checkbox]:checked {
+  background-color: currentcolor;
+}
+
+[type=checkbox]:checked::before {
+  box-shadow: none;
+}
+
+.header_title {
+  color: #000;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.48px;
+}
+
+.header_title:checked {
+  color: #f7eded;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.48px;
+}
