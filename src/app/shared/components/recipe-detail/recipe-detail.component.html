@@ -1,141 +1,142 @@
 <div class="container">
-<section class="container_detail" *ngIf="recipe ">
-  <div class="sub_container">
-    <div>
-      <h1>{{ recipe.title }}</h1>
-      <div class="user_block">
-        <div class="logo flex">
-          <img src="{{ recipe.author.avatar }}" alt="" class="box" />
-          <div>
-            <h6>{{ recipe.author.firstName }}{{recipe.author.lastName}}</h6>
-            <p>{{ recipe.updatedOn | date : "longDate" }}</p>
+  <section class="container_detail" *ngIf="recipe ">
+    <div class="sub_container">
+      <div>
+        <h1>{{ recipe.title }}</h1>
+        <div class="user_block">
+          <div class="logo flex">
+            <img src="{{ recipe.author.avatar }}" alt="" class="box"/>
+            <div>
+              <h6>{{ recipe.author.firstName }}{{ recipe.author.lastName }}</h6>
+              <p>{{ recipe.updatedOn | date : "longDate" }}</p>
+            </div>
+          </div>
+          <div class="time flex">
+            <img src="../../../../assets/Timer.png" alt="" class="box"/>
+            <div>
+              <p>Время приготовления</p>
+              <p>{{ recipe.timeCooking }} минуты</p>
+            </div>
+          </div>
+          <div class="icon flex">
+            <img src="../../../../assets/ForkKnife.png" alt="" class="box"/>
+            <p>{{ recipe.tags[0] }}</p>
           </div>
         </div>
-        <div class="time flex">
-          <img src="../../../../assets/Timer.svg" alt="" class="box" />
-          <div>
-            <p>Время приготовления</p>
-            <p>{{ recipe.timeCooking }} минуты</p>
-          </div>
+      </div>
+      <div class="print_box">
+        <div class="print print">
+          <img src="../../../../assets/star.png" alt=""/>
+          <p>В ИЗБРАННОЕ</p>
         </div>
-        <div class="icon flex">
-          <img src="../../../../assets/ForkKnife.svg" alt="" class="box" />
-          <p>{{ recipe.tags[0] }}</p>
+        <div class="print print">
+          <img src="../../../../assets/printer.png" alt=""/>
+          <p (click)="printPage()">РАСПЕЧАТАТЬ</p>
+        </div>
+        <div class="share print">
+          <img src="../../../../assets/share.png" alt=""/>
+          <p (click)="shareRecipe()">ПОДЕЛИТЬСЯ</p>
         </div>
       </div>
     </div>
-    <div class="print_box">
-      <div class="print ">
-        <img src="../../../../assets/star.png" alt="" />
-        <p>В ИЗБРАННОЕ</p>
-      </div>
-      <div class="print ">
-        <img src="../../../../assets/printer.png" alt="" />
-        <p>РАСПЕЧАТАТЬ</p>
-      </div>
-      <div class="print">
-        <img src="../../../../assets/share.png" alt="" />
-        <p>ПОДЕЛИТЬСЯ</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section  *ngIf="recipe ">
-  <div class="image_block">
-    <div class="image_recipe">
-      <img  src="{{ recipe.image }}" alt="" />
-    </div>
-    <div class="description">
-      <div class="description_box">
-        <h5>Пищевая ценность</h5>
-        <div class="nutritional">
-          <div class="nutritional_flex">
-            <span>Калории</span>
-            <p *ngIf="recipe">{{ recipe.foodValue.calories }}</p>
+  <section *ngIf="recipe ">
+    <div class="image_block">
+      <div class="image_recipe">
+        <img src="{{ recipe.image }}" alt=""/>
+      </div>
+      <div class="description">
+        <div class="description_box">
+          <h5>Пищевая ценность</h5>
+          <div class="nutritional">
+            <div class="nutritional_flex">
+              <span>Калории</span>
+              <p *ngIf="recipe">{{ recipe.foodValue.calories }}</p>
+            </div>
+            <div class="nutritional_flex">
+              <span>Жиры</span>
+              <p>{{ recipe.foodValue.fats }}</p>
+            </div>
+            <div class="nutritional_flex">
+              <span>Углеводы</span>
+              <p>{{ recipe.foodValue.carbohydrates }}</p>
+            </div>
+            <div class="nutritional_flex">
+              <span>Белки</span>
+              <p>{{ recipe.foodValue.proteins }}</p>
+            </div>
           </div>
-          <div class="nutritional_flex">
-            <span>Жиры</span>
-            <p>{{ recipe.foodValue.fats }}</p>
-          </div>
-          <div class="nutritional_flex">
-            <span>Углеводы</span>
-            <p>{{ recipe.foodValue.carbohydrates }}</p>
-          </div>
-          <div class="nutritional_flex">
-            <span>Белки</span>
-            <p>{{ recipe.foodValue.proteins }}</p>
-          </div>
+          <p class="values">Значения приблизительные</p>
         </div>
-        <p class="values">Значения приблизительные</p>
       </div>
     </div>
-  </div>
-  <h6 class="food">
-    What does the word “food” mean to you? Is it a pleasure or just a fuel? This
-    question has been disputable for a long time and everybody has his personal
-    opinion about it. The majority of people would agree that we eat in order to
-    have enough energy to complete our routine tasks.
-  </h6>
-</section>
+    <h6 class="food">
+      What does the word “food” mean to you? Is it a pleasure or just a fuel? This
+      question has been disputable for a long time and everybody has his personal
+      opinion about it. The majority of people would agree that we eat in order to
+      have enough energy to complete our routine tasks.
+    </h6>
+  </section>
 
-<section class="select_section"  *ngIf="recipe ">
-<!--  <div class="ingridient_box">
-    <h3>Ингредиенты</h3>
-    <div class="ingridient_list">
-      <h5>Что вам пригодиться</h5>
-      <div *ngFor="let item of selectRecipe">
-        <div class="round">
-          <input type="checkbox" id="checkbox" class="checlStr" />
-          <label for="checkbox" class="labelCheck">{{ item.title }}</label>
+  <section class="select_section" *ngIf="recipe ">
+    <!--  <div class="ingridient_box">
+        <h3>Ингредиенты</h3>
+        <div class="ingridient_list">
+          <h5>Что вам пригодиться</h5>
+          <div *ngFor="let item of selectRecipe">
+            <div class="round">
+              <input type="checkbox" id="checkbox" class="checlStr" />
+              <label for="checkbox" class="labelCheck">{{ item.title }}</label>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>-->
-  <div class="other_recipe">
- <!--   <div>
+      </div>-->
+    <div class="other_recipe">
       <app-other-recipe></app-other-recipe>
-    </div>-->
-  </div>
-</section>
+    </div>
+  </section>
 
-<section  *ngIf="recipe ">
-  <div class="steps">
-    <h3>Шаги приготовления</h3>
-    <div class="ingridient_list">
-      <h5>Что вам пригодиться</h5>
-      <div *ngFor="let item of selectRecipe; let index = index">
-        <div class="round">
-          <input type="checkbox" id="checkbox" class="checlStr" />
-          <label for="checkbox" class="labelCheck"
-          ><div>
-            <p class="header_title">{{ item.header }}</p>
-            <p>{{ item.title }}</p>
-          </div></label
-          >
+  <section *ngIf="recipe ">
+    <div class="steps">
+      <h3>Шаги приготовления</h3>
+      <div class="ingridient_list">
+        <h5>Что вам пригодиться</h5>
+        <div *ngFor="let item of selectRecipe; let index = index">
+          <div class="round">
+            <input type="checkbox" id="checkbox" class="checlStr"/>
+            <label for="checkbox" class="labelCheck"
+            >
+              <div>
+                <p class="header_title">{{ item.header }}</p>
+                <p>{{ item.title }}</p>
+              </div>
+            </label
+            >
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
-
-<section  *ngIf="recipe ">
-  <h3>Комментарии</h3>
-  <!--   <div *ngFor="let item of recipe">
-    <img src={{item.user.image}} alt="">
-
-  </div> -->
-  <div *ngFor="let item of recipe.comments">
-    <div>
-      <div class="logo_comments">
-        <img src="" alt="" />
-      </div>
-      <div class="name_comments">
-       <!-- <p>{{ item.user }}</p>
-        <p>{{ item.dateCreated | date : "longDate" }}</p>
-        <p>{{ item.body }}</p>-->
+  </section>
+  <section>
+    <app-delicious-recipes [forDetail]=true></app-delicious-recipes>
+  </section>
+  <section *ngIf="recipe ">
+    <h3>Комментарии</h3>
+    <app-comments [comments]="comments"></app-comments>
+    <div *ngFor="let item of recipe.comments">
+      <div>
+        <div class="logo_comments">
+          <img src="" alt=""/>
+        </div>
+        <div class="name_comments">
+          <!-- <p>{{ item.user }}</p>
+           <p>{{ item.dateCreated | date : "longDate" }}</p>
+           <p>{{ item.body }}</p>-->
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 </div>
+
+<div #modalContainer></div>

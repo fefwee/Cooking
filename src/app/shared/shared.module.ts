@@ -17,6 +17,9 @@ import { RecipeItemComponent } from './components/recipe-item/recipe-item.compon
 import { DeliciousRecipesComponent } from './components/delicious-recipes/delicious-recipes.component';
 import { WhyWeComponent } from './components/why-we/why-we.component';
 import { GetNewRecipeComponent } from './components/get-new-recipe/get-new-recipe.component';
+import { OtherRecipeComponent } from './components/other-recipe/other-recipe.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { ModalNotificationComponent } from './components/modal-notification/modal-notification.component';
 
 @NgModule({
   imports: [
@@ -40,6 +43,9 @@ import { GetNewRecipeComponent } from './components/get-new-recipe/get-new-recip
     DeliciousRecipesComponent,
     WhyWeComponent,
     GetNewRecipeComponent,
+    OtherRecipeComponent,
+    CommentsComponent,
+    ModalNotificationComponent,
   ],
   exports: [
     FooterComponent,
@@ -57,7 +63,11 @@ import { GetNewRecipeComponent } from './components/get-new-recipe/get-new-recip
     RecipeItemComponent,
     DeliciousRecipesComponent,
     WhyWeComponent,
-    GetNewRecipeComponent
+    GetNewRecipeComponent,
+    OtherRecipeComponent,
+    CommentsComponent,
+    ErrorComponent,
+    ModalNotificationComponent
   ],
 })
 export class SharedModule {

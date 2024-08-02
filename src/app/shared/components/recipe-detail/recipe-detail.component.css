@@ -1,11 +1,7 @@
-.container_detail {
+.container {
   position: relative;
   width: 100%;
   margin-bottom: 69px;
-}
-
-.sub_container h1 {
-  margin-top: 80px;
 }
 
 .logo img {
@@ -42,8 +38,23 @@
   padding: 0 29px;
 }
 
+.print img {
+  padding: 28px;
+  background-color: #E7FAFE;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 16px;
+}
 
+.print_box {
+  display: flex;
+}
 
+.print_box img {
+  margin-right: 30px;
+}
 
 .sub_container {
   display: flex;
@@ -55,29 +66,6 @@
   max-width: 840px;
   margin-right: 40px;
 
-}
-
-.print_box{
-  display:flex;
-
-}
-.print img {
-  width: 24px;
-  height: 24px;
-  background-color:rgba(231, 250, 254, 1);
-  border-radius:50px;
-  margin-bottom: 16px;
-}
-.print {
-  display: flex;
-  flex-direction:column;
-  align-items:center;
-}
-.print p {
-  color:rgba(0, 0, 0, 1)
-}
-.print:not(:last-child){
-  margin-right: 30px;
 }
 
 .image_recipe img {
@@ -124,7 +112,8 @@
   justify-content: space-between;
   width: 100%;
   padding: 16px 16px 16px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.10);;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+;
 }
 
 .image_block {
@@ -190,7 +179,8 @@
 }
 
 
-.checlStr:checked + .labelCheck {
+
+.checlStr:checked+.labelCheck {
   color: rgba(218, 211, 211, 0.6);
   font-family: Inter;
   font-size: 16px;
@@ -200,6 +190,7 @@
   text-decoration-line: line-through;
 
 }
+
 
 
 [type=checkbox] {
@@ -217,6 +208,7 @@
   cursor: pointer;
   margin-right: 24px;
 }
+
 
 
 [type=checkbox]::before {
@@ -248,7 +240,6 @@
   line-height: normal;
   letter-spacing: -0.48px;
 }
-
 .header_title:checked {
   color: #f7eded;
   font-size: 24px;

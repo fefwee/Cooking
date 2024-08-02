@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Прочие рецепты</h2>
+  <div class="recipe_container" *ngFor="let item of otherRecipe">
+    <div class="logo" >
+      <img src="{{ item.image }}" alt="" />
+    </div>
+    <div class="description">
+      <h3>{{ item.title }}</h3>
+      <p>От {{ item.author.firstName }}</p>
+    </div>
+  </div>
+</div>

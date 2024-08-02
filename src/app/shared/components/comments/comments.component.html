@@ -1,0 +1,22 @@
+<div class="container">
+  <div *ngFor="let item of comments">
+    <ul>
+      <li>{{item.user.firstName}}</li>
+      <li>{{item.createdOn}}</li>
+      <li>{{item.text}}</li>
+    </ul>
+  </div>
+  <div class="comment-container">
+    <form [formGroup]="comment">
+      <label for="comment">Ваш комментарии</label>
+      <div class="textarea-container">
+        <textarea id="comment"></textarea>
+        <button type="submit" class="submit-btn">
+          <img src="../../../../assets/Mail.png" alt="Icon" />
+          Отправить
+        </button>
+      </div>
+    </form>
+  </div>
+
+</div>

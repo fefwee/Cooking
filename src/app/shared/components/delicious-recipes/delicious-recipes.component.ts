@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Recipe} from "../../../types/types";
 import {GetRecipeService} from "../../../services/get-recipe.service";
 
@@ -8,6 +8,8 @@ import {GetRecipeService} from "../../../services/get-recipe.service";
   styleUrls: ['./delicious-recipes.component.css']
 })
 export class DeliciousRecipesComponent {
+
+  @Input() forDetail:boolean = false;
 
   public recipe: Recipe[] = [];
 

@@ -1,7 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+import {
+  Component,
+  ComponentFactoryResolver,
+  ComponentRef,
+  OnInit,
+  Output,
+  ViewChild,
+  ViewContainerRef
+} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {GetRecipeService} from "../../../services/get-recipe.service";
-import {RecipeSingle} from "../../../types/types";
+import {Comments, RecipeSingle} from "../../../types/types";
+import {ModalNotificationComponent} from "../modal-notification/modal-notification.component";
 
 @Component({
   selector: 'app-recipe-detail',
@@ -9,6 +18,12 @@ import {RecipeSingle} from "../../../types/types";
   styleUrls: ['./recipe-detail.component.css']
 })
 export class RecipeDetailComponent implements OnInit {
+
+  @ViewChild('modalContainer', {read: ViewContainerRef, static: true}) modalContainer!: ViewContainerRef;
+  modalRef!: ComponentRef<ModalNotificationComponent>;
+
+  @Output() comments!: Comments[];
+
 
   public recipe: RecipeSingle = {
     author: {
@@ -62,15 +77,45 @@ export class RecipeDetailComponent implements OnInit {
 
   constructor(
     private getRecipeService: GetRecipeService,
-    private route: ActivatedRoute,) {
+    private route: ActivatedRoute,
+    private componentFactoryResolver: ComponentFactoryResolver) {
   }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     this.getRecipeService.getRecipeId(id).subscribe({
       next: (recipe: RecipeSingle) => {
-        this.recipe = recipe
+        this.recipe = recipe;
+        this.comments = recipe.comments;
       }
     })
   }
+
+  public shareRecipe() {
+    this.modalContainer.clear();
+
+    const factory = this.componentFactoryResolver.resolveComponentFactory(ModalNotificationComponent);
+    this.modalRef = this.modalContainer.createComponent(factory);
+    this.modalRef.instance.title = 'Поделиться этим рецептом?';
+    this.modalRef.instance.desc = 'Вы хотите поделиться этим рецептом со всеми?';
+    this.modalRef.instance.open.subscribe((isOpen: boolean) => {
+      if (!isOpen) {
+        this.modalContainer.clear();
+      }
+    });
+
+    this.modalRef.instance.openModal();
+  }
+
+  public closeModal() {
+    if (this.modalRef) {
+      this.modalRef.instance.closeModal();
+    }
+  }
+
+  public printPage(): void {
+    window.print();
+  }
+
+
 }

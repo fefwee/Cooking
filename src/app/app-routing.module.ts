@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {ErrorComponent} from "./shared/components/error/error.component";
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
         (m) => m.AuthModule
       ),
   },
+  {
+    path:'**',
+    component:ErrorComponent
+  }
 
 ];
 

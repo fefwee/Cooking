@@ -1,9 +1,12 @@
 <div class="wrapper_delicious container">
-  <div class="header_delicious">
+  <div class="header_delicious" *ngIf="!forDetail">
     <h2>Попробуйте эти вкусные
       рецепты</h2>
     <p>На нашем сайте вы найдете лучшие рецепты, которые помогут вам создавать великолепные блюда и порадовать своих
       близких и гостей своим кулинарным мастерством. </p>
+  </div>
+  <div *ngIf="forDetail">
+    <h2>Возможно вам понравятся эти рецепты</h2>
   </div>
   <app-recipe-item [recipe]="recipe"
                    [favoriteAddBtn]=false
