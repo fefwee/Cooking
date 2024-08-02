@@ -1,0 +1,158 @@
+<div class="container">
+  <div class="create_recipe">
+    <div *ngIf="item">
+      <h1>this is id{{ item.id }}</h1>
+      <!-- <h3 *ngIf="obj">{{ title }} {{ obj.title }}</h3> -->
+    </div>
+    <form [formGroup]="createRecipeForm" class="basic_information">
+      <div>
+        <div class="input_field">
+          <h5>Основная информация</h5>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Название рецепта</p>
+          </label>
+          <div class="max_field input">
+            <input pInputText formControlName="nameRecipe"/>
+          </div>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Краткое описание</p>
+          </label>
+          <div class="max_field input">
+            <textarea
+              rows="2"
+              cols="30"
+              pInputTextarea
+              formControlName="descRecipe"
+            ></textarea>
+            <p>Опишите о чем ваш рецепт</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="input_field">
+          <h5>Дополнительная информация</h5>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Категория</p>
+          </label>
+          <div class="min_field">
+            <input pInputText formControlName="categories"/>
+          </div>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Время приготовления</p>
+          </label>
+          <div class="min_field">
+            <input pInputText formControlName="timeCooking"/>
+          </div>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Белки</p>
+          </label>
+          <div class="max_field input">
+            <input pInputText formControlName="belki"/>
+          </div>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Жиры</p>
+          </label>
+          <div class="min_field">
+            <input pInputText formControlName="fats"/>
+          </div>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Углеводы</p>
+          </label>
+          <div class="min_field">
+            <input pInputText formControlName="carbohydrates"/>
+          </div>
+        </div>
+        <div class="input_field">
+          <label class="title">
+            <p>Калории</p>
+          </label>
+          <div class="min_field">
+            <input pInputText formControlName="calories"/>
+          </div>
+        </div>
+        <div class="column">
+          <h5>Детальная информация</h5>
+          <p>Детально опишите первый шаг вашего рецепта</p>
+        </div>
+        <div formArrayName="steps">
+          <div *ngFor="let step of steps.controls; let i = index" [formGroupName]="i">
+            <div class="input_field">
+              <label class="title">
+                <p>Краткое действие</p>
+              </label>
+              <div class="min_field">
+                <input pInputText formControlName="firstStep" />
+                <div *ngIf="isFormSubmited && !step.get('firstStep')?.valid">Краткое действие обязательно</div>
+              </div>
+            </div>
+            <div class="input_field">
+              <label class="title">
+                <p>Описание</p>
+              </label>
+              <div class="max_field">
+                <textarea
+                  rows="1"
+                  cols="20"
+                  pInputTextarea
+                  formControlName="descFirstStep"
+                ></textarea>
+                <div *ngIf="isFormSubmited && !step.get('descFirstStep')?.valid">Описание обязательно</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn_add_more">
+          <button type="button" (click)="addStep()" class="btn_blue">Добавить еще</button>
+        </div>
+        <div class="column">
+          <h5>Ингредиенты</h5>
+        </div>
+        <div formArrayName="ingredients">
+          <div *ngFor="let ingredient of ingredients.controls; let i = index" [formGroupName]="i">
+            <div class="input_field">
+              <label class="title">
+                <p>Название ингредиента</p>
+              </label>
+              <div class="min_field">
+                <input pInputText formControlName="nameIngredient" />
+                <div *ngIf="isFormSubmited && !ingredient.get('nameIngredient')?.valid">Название ингредиента обязательно</div>
+              </div>
+            </div>
+            <div class="input_field">
+              <label class="title">
+                <p>Описание</p>
+              </label>
+              <div class="max_field">
+                <textarea
+                  rows="1"
+                  cols="20"
+                  pInputTextarea
+                  formControlName="descIngredient"
+                ></textarea>
+                <div *ngIf="isFormSubmited && !ingredient.get('descIngredient')?.valid">Описание обязательно</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="btn_add_more">
+          <button type="button" (click)="addIngredient()" class="btn_blue">Добавить еще</button>
+        </div>
+      </div>
+      <button class="btn_blue" (click)="onSave()">Отправить рецепт</button>
+    </form>
+  </div>
+</div>

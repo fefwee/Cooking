@@ -30,6 +30,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'create-recipe',
+    loadChildren: () =>
+      import('./pages/create-recipe/create-recipe.module').then(
+        (m) => m.CreateRecipeModule
+      ),
+  },
+  {
     path:'**',
     component:ErrorComponent
   }

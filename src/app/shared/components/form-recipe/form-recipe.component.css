@@ -1,0 +1,91 @@
+.container {
+  width: 100%;
+}
+.validation {
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-x: 95%;
+}
+.input_field {
+  display: flex;
+  align-items: center;
+}
+
+.create_recipe h3 {
+  text-align: start;
+  margin: 60px 0 0 0;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.input_field {
+  border-bottom: 1px solid #E5E7EB;
+}
+
+p {
+  color: var(--gray-700, #374151);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.column {
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 40px 0 0 0;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.input_field h5 {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  margin: 40px 0 20px 0;
+}
+
+input,
+textarea {
+  margin: 20px;
+}
+
+
+
+.title {
+  min-width: 400px;
+  margin-right: 24px;
+}
+
+.max_field input {
+  min-width: 500px;
+}
+
+.max_field textarea {
+  width: 500px;
+  min-width: 500px;
+}
+
+.min_field input {
+  width: 320px;
+  max-width: 320px;
+}
+::ng-deep .p-button {
+  width: 100%;
+  border: none;
+}
+
+.btn   {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 55px;
+}
+.btn_add_more .btn_blue{
+  padding: 9px 11px;
+  border-radius:6px;
+  margin: 30px 0 31px 0;
+}

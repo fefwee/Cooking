@@ -20,6 +20,7 @@ import { GetNewRecipeComponent } from './components/get-new-recipe/get-new-recip
 import { OtherRecipeComponent } from './components/other-recipe/other-recipe.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { ModalNotificationComponent } from './components/modal-notification/modal-notification.component';
+import { FormRecipeComponent } from './components/form-recipe/form-recipe.component';
 
 @NgModule({
   imports: [
@@ -46,6 +47,7 @@ import { ModalNotificationComponent } from './components/modal-notification/moda
     OtherRecipeComponent,
     CommentsComponent,
     ModalNotificationComponent,
+    FormRecipeComponent,
   ],
   exports: [
     FooterComponent,
@@ -67,7 +69,8 @@ import { ModalNotificationComponent } from './components/modal-notification/moda
     OtherRecipeComponent,
     CommentsComponent,
     ErrorComponent,
-    ModalNotificationComponent
+    ModalNotificationComponent,
+    FormRecipeComponent
   ],
 })
 export class SharedModule {

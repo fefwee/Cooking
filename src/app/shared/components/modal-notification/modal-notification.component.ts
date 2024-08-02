@@ -21,7 +21,7 @@ export class ModalNotificationComponent {
   }
 
   public closeModal(): void {
-    if (this.openWindow) { // Проверка состояния перед изменением
+    if (this.openWindow) {
       this.openWindow = false;
       this.open.emit(false);
     }
