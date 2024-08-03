@@ -10,7 +10,19 @@
   align-items: center;
   z-index: 1000;
 }
-
+.logo_error{
+  max-width: 40px;
+  max-height: 40px;
+  margin-right: 16px;
+}
+.logo_error img {
+  width: 100%;
+  height: 100%;
+}
+.flex{
+  display:flex;
+  align-items:center;
+}
 .modal-content {
   background-color: #fff;
   min-width: 512px;

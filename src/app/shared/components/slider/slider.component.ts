@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {GetRecipeService} from "../../../services/get-recipe.service";
 import {Recipe} from "../../../types/types";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-slider',
@@ -12,13 +13,19 @@ export class SliderComponent implements OnInit {
 
   @ViewChild('wrapper') myElement: any;
 
-  constructor(private getRecipeService: GetRecipeService) {
+  constructor(
+    private getRecipeService: GetRecipeService,
+    protected route: Router,
+  ) {
   }
 
   ngOnInit(): void {
     this.getRecipeService.getRecipe().subscribe({
       next: (val: Recipe[]) => {
         this.slides = val;
+        if (this.slides.length > 0) {
+          this.slides.shift();
+        }
       }
     })
   }
@@ -36,5 +43,9 @@ export class SliderComponent implements OnInit {
     this.currentIndex = (this.currentIndex + 1) % this.slides.length;
   }
 
+
+  public navigateToRecipe(id:string) {
+    this.route.navigate([`/recipes//${id}`])
+  };
 
 }

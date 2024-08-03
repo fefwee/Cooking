@@ -1,12 +1,23 @@
 <div class="modal-overlay" *ngIf="openWindow" (click)="onOverlayClick()">
   <div class="modal-content" (click)="$event.stopPropagation()">
-    <div class="modal-header">
+    <div class="modal-header" *ngIf="!error">
       <h6>{{ title }}</h6>
       <p>{{ desc }}</p>
     </div>
+    <div class="modal-header" *ngIf="error">
+      <div class="flex">
+        <div class="logo_error">
+          <img src="../../../../assets/Illustration.png" alt="">
+        </div>
+        <div>
+          <h6>{{ title }}</h6>
+          <p>{{ desc }}</p>
+        </div>
+      </div>
+    </div>
     <div class="modal-footer">
       <button class="btn_white" (click)="closeModal()">Закрыть</button>
-      <button class="btn_blue">Поделиться</button>
+      <button class="{{error ? 'btn_red': 'btn_blue'}}">{{error ? 'Удалить' : 'Поделиться'}}</button>
     </div>
   </div>
 </div>

@@ -1,8 +1,7 @@
 <div class="container">
   <div class="create_recipe">
-    <div *ngIf="item">
-      <h1>this is id{{ item.id }}</h1>
-      <!-- <h3 *ngIf="obj">{{ title }} {{ obj.title }}</h3> -->
+    <div>
+      <h3>{{ recipe.title }}</h3>
     </div>
     <form [formGroup]="createRecipeForm" class="basic_information">
       <div>
@@ -14,7 +13,7 @@
             <p>Название рецепта</p>
           </label>
           <div class="max_field input">
-            <input pInputText formControlName="nameRecipe"/>
+            <input pInputText formControlName="nameRecipe" value="{{preloadData && recipe.title}}"/>
           </div>
         </div>
         <div class="input_field">
@@ -27,6 +26,7 @@
               cols="30"
               pInputTextarea
               formControlName="descRecipe"
+              value="{{preloadData && recipe.body}}"
             ></textarea>
             <p>Опишите о чем ваш рецепт</p>
           </div>
@@ -41,7 +41,7 @@
             <p>Категория</p>
           </label>
           <div class="min_field">
-            <input pInputText formControlName="categories"/>
+            <input pInputText formControlName="categories" value="{{preloadData && recipe.tags[0]}}"/>
           </div>
         </div>
         <div class="input_field">
@@ -49,7 +49,7 @@
             <p>Время приготовления</p>
           </label>
           <div class="min_field">
-            <input pInputText formControlName="timeCooking"/>
+            <input pInputText formControlName="timeCooking" value="{{preloadData && recipe.timeCooking}}"/>
           </div>
         </div>
         <div class="input_field">
@@ -57,7 +57,7 @@
             <p>Белки</p>
           </label>
           <div class="max_field input">
-            <input pInputText formControlName="belki"/>
+            <input pInputText formControlName="belki" value="{{preloadData && recipe.foodValue.proteins}}"/>
           </div>
         </div>
         <div class="input_field">
@@ -65,7 +65,7 @@
             <p>Жиры</p>
           </label>
           <div class="min_field">
-            <input pInputText formControlName="fats"/>
+            <input pInputText formControlName="fats" value="{{preloadData && recipe.foodValue.fats}}"/>
           </div>
         </div>
         <div class="input_field">
@@ -73,7 +73,8 @@
             <p>Углеводы</p>
           </label>
           <div class="min_field">
-            <input pInputText formControlName="carbohydrates"/>
+            <input pInputText formControlName="carbohydrates"
+                   value="{{preloadData && recipe.foodValue.carbohydrates}}"/>
           </div>
         </div>
         <div class="input_field">
@@ -81,7 +82,7 @@
             <p>Калории</p>
           </label>
           <div class="min_field">
-            <input pInputText formControlName="calories"/>
+            <input pInputText formControlName="calories" value="{{preloadData && recipe.foodValue.calories}}"/>
           </div>
         </div>
         <div class="column">
@@ -95,8 +96,7 @@
                 <p>Краткое действие</p>
               </label>
               <div class="min_field">
-                <input pInputText formControlName="firstStep" />
-                <div *ngIf="isFormSubmited && !step.get('firstStep')?.valid">Краткое действие обязательно</div>
+                <input pInputText formControlName="firstStep"/>
               </div>
             </div>
             <div class="input_field">
@@ -110,7 +110,6 @@
                   pInputTextarea
                   formControlName="descFirstStep"
                 ></textarea>
-                <div *ngIf="isFormSubmited && !step.get('descFirstStep')?.valid">Описание обязательно</div>
               </div>
             </div>
           </div>
@@ -128,8 +127,7 @@
                 <p>Название ингредиента</p>
               </label>
               <div class="min_field">
-                <input pInputText formControlName="nameIngredient" />
-                <div *ngIf="isFormSubmited && !ingredient.get('nameIngredient')?.valid">Название ингредиента обязательно</div>
+                <input pInputText formControlName="nameIngredient"/>
               </div>
             </div>
             <div class="input_field">
@@ -143,7 +141,6 @@
                   pInputTextarea
                   formControlName="descIngredient"
                 ></textarea>
-                <div *ngIf="isFormSubmited && !ingredient.get('descIngredient')?.valid">Описание обязательно</div>
               </div>
             </div>
           </div>

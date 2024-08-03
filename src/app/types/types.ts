@@ -74,16 +74,6 @@ export interface Author {
 }
 
 
-export interface Comment {
-  id: string
-  postId: string
-  user: {}
-  text: string
-  createdOn: string
-  updatedOn: string
-}
-
-
 export interface RecipeSingle {
   id: string
   body: string

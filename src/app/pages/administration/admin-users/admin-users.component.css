@@ -1,0 +1,54 @@
+.logo {
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+}
+
+.logo img {
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+.flex {
+  display: flex;
+}
+
+h6 {
+  color: var(--gray-500, #6B7280);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+h5 {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+th {
+  color: var(--gray-500, #6B7280);
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+
+.active {
+  padding: 2px 10px;
+  border-radius: 10px;
+  background: var(--green-100, #D1FAE5);
+  color: #065F46;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+}
+.edit{
+  color:#3A3395;
+}

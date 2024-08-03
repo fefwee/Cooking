@@ -79,9 +79,18 @@ export class RecipeDetailComponent implements OnInit {
     private getRecipeService: GetRecipeService,
     private route: ActivatedRoute,
     private componentFactoryResolver: ComponentFactoryResolver) {
+    route.url.subscribe({
+      next: (() => {
+        this.changeRecipe()
+      })
+    })
   }
 
   ngOnInit(): void {
+    this.changeRecipe();
+  }
+
+  public changeRecipe() {
     const id = this.route.snapshot.paramMap.get('id');
     this.getRecipeService.getRecipeId(id).subscribe({
       next: (recipe: RecipeSingle) => {

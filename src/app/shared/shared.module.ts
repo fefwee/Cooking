@@ -21,6 +21,7 @@ import { OtherRecipeComponent } from './components/other-recipe/other-recipe.com
 import { CommentsComponent } from './components/comments/comments.component';
 import { ModalNotificationComponent } from './components/modal-notification/modal-notification.component';
 import { FormRecipeComponent } from './components/form-recipe/form-recipe.component';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   imports: [
@@ -28,7 +29,8 @@ import { FormRecipeComponent } from './components/form-recipe/form-recipe.compon
     RouterModule,
     ReactiveFormsModule,
     InputTextModule,
-    MatButtonModule
+    MatButtonModule,
+    TableModule
   ],
   declarations: [
     ErrorComponent,
@@ -70,7 +72,8 @@ import { FormRecipeComponent } from './components/form-recipe/form-recipe.compon
     CommentsComponent,
     ErrorComponent,
     ModalNotificationComponent,
-    FormRecipeComponent
+    FormRecipeComponent,
+    TableModule
   ],
 })
 export class SharedModule {

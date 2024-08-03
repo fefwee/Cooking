@@ -9,6 +9,7 @@ export class ModalNotificationComponent {
 
   @Input() title!: string;
   @Input() desc!: string;
+  @Input() error!:boolean;
   @Output() open = new EventEmitter<boolean>();
 
   public openWindow:boolean = false;

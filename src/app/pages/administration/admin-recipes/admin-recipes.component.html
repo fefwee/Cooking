@@ -1,0 +1,32 @@
+<div class="card">
+  <p-table [value]="recipes" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Название рецепта</th>
+        <th>Краткое описание</th>
+        <th>ID рецепта</th>
+        <th>Категория</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-recipe>
+      <tr>
+        <td>{{ recipe.title }}</td>
+        <td>{{ recipe.body }}</td>
+        <td>{{ recipe.id }}</td>
+        <td>{{ recipe.tags }}</td>
+        <td>
+          <div class="edit"
+               (click)="navigateToRecipe(recipe.id)"
+          ></div>
+        </td>
+        <td>
+          <div class="delete" (click)="deleteRecipe()"></div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<div #modalContainer></div>

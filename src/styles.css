@@ -47,7 +47,17 @@ span {
   font-size: 14px;
   cursor: pointer;
 }
-
+.btn_red {
+  border-radius: 16px;
+  color: #fff;
+  padding: 9px 17px;
+  background-color: rgba(221, 0, 53, 1);
+  align-items: center;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius:6px;
+}
 .btn_blue:disabled {
   background-color: rgba(58, 51, 149, 0.5);
   color: rgba(255, 255, 255, 0.7);

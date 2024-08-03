@@ -1,0 +1,30 @@
+<div class="card">
+  <p-table [value]="users" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Наименование</th>
+        <th>Статус</th>
+        <th>роль</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+      <tr>
+        <td [style]="{'min-width': '600px'}">
+          <div class="flex">
+            <div class="logo">
+              <img src="{{ user.image }}" alt="" />
+            </div>
+            <div class="desc">
+              <h5>{{ user.fullName }}</h5>
+              <h6>{{ user.username }}</h6>
+            </div>
+          </div>
+        </td>
+        <td><a class="active">Активен</a></td>
+        <td>{{ user.role }}</td>
+        <td class="edit">редактировать</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

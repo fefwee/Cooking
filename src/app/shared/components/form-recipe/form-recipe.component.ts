@@ -1,93 +1,121 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
-import { GetRecipeService } from '../../../services/get-recipe.service';
+import {Component, Input, OnInit,} from '@angular/core';
+import {FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
+import {ActivatedRoute} from '@angular/router';
+import {GetRecipeService} from '../../../services/get-recipe.service';
+import {RecipeSingle} from "../../../types/types";
 
 @Component({
   selector: 'app-form-recipe',
   templateUrl: './form-recipe.component.html',
   styleUrls: ['./form-recipe.component.css']
 })
-export class FormRecipeComponent {
+export class FormRecipeComponent implements OnInit {
 
-  @Input() item: any | undefined;
+  @Input() preloadData: boolean = true;
   public title: string = 'Создание рецепта';
-  public submitBtn = 'Отправить рецепт';
-  public imageBlock = true;
-  @Output() login: EventEmitter<any> = new EventEmitter();
+
   public createRecipeForm!: FormGroup;
-  public isFormSubmited = false;
+
+  public recipe: RecipeSingle = {
+    author: {
+      id: "",
+      avatar: "",
+      firstName: "",
+      lastName: "",
+      middleName: ""
+    },
+    body: "",
+    comments: [],
+    cookingSteps: [],
+    createdOn: "",
+    foodValue: {
+      calories: 0,
+      fats: 0,
+      carbohydrates: 0,
+      proteins: 0
+    },
+    id: "",
+    image: "",
+    ingredients: [],
+    tags: [],
+    timeCooking: 0,
+    title: "",
+    updatedOn: ""
+  };
 
   constructor(
     private fb: FormBuilder,
-    private router: Router,
     protected service: GetRecipeService,
-    protected route: ActivatedRoute
-  ) { }
+    protected route: ActivatedRoute,
+  ) {
+  }
 
   ngOnInit(): void {
-    this.createForm();
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id && this.preloadData) {
+      this.service.getRecipeId(id).subscribe({
+        next: (value: RecipeSingle) => {
+          this.recipe = value;
+          this.createForm(this.recipe);
+        }
+      });
+    }
+    this.createForm(this.recipe);
   }
 
-  createForm() {
+
+  createForm(val: RecipeSingle) {
     this.createRecipeForm = this.fb.group({
-      nameRecipe: ['', [Validators.required]],
-      descRecipe: ['', [Validators.required]],
-      categories: ['', [Validators.required]],
-      timeCooking: ['', [Validators.required]],
-      belki: ['', [Validators.required]],
-      fats: ['', [Validators.required]],
-      carbohydrates: ['', [Validators.required]],
-      calories: ['', [Validators.required]],
-      steps: this.fb.array([this.createStep()]),
-      ingredients: this.fb.array([this.createIngredient()])
+      nameRecipe: [val.title || '', [Validators.required]],
+      descRecipe: [val.body || '', [Validators.required]],
+      categories: [val.tags.join(', ') || '', [Validators.required]],
+      timeCooking: [val.timeCooking || '', [Validators.required]],
+      belki: [val.foodValue.proteins || '', [Validators.required]],
+      fats: [val.foodValue.fats || '', [Validators.required]],
+      carbohydrates: [val.foodValue.carbohydrates || '', [Validators.required]],
+      calories: [val.foodValue.calories || '', [Validators.required]],
+      steps: this.fb.array(val.cookingSteps.map(step => this.createStep(step))),
+      ingredients: this.fb.array(val.ingredients.map(ingredient => this.createIngredient(ingredient)))
     });
   }
+
 
   get steps(): FormArray {
     return this.createRecipeForm.get('steps') as FormArray;
   }
 
-  createStep(): FormGroup {
+  createStep(step?: any): FormGroup {
     return this.fb.group({
-      firstStep: ['', [Validators.required]],
-      descFirstStep: ['', [Validators.required]]
+      firstStep: [step?.title || '', [Validators.required]],
+      descFirstStep: [step?.description || '', [Validators.required]]
     });
   }
 
+
   addStep(): void {
     this.steps.push(this.createStep());
-  }
-
-  removeStep(index: number): void {
-    if (this.steps.length > 1) {
-      this.steps.removeAt(index);
-    }
   }
 
   get ingredients(): FormArray {
     return this.createRecipeForm.get('ingredients') as FormArray;
   }
 
-  createIngredient(): FormGroup {
+  createIngredient(ingredient?: any): FormGroup {
     return this.fb.group({
-      nameIngredient: ['', [Validators.required]],
-      descIngredient: ['', [Validators.required]]
+      nameIngredient: [ingredient?.title || '', [Validators.required]],
+      descIngredient: [ingredient?.description || '', [Validators.required]]
     });
   }
+
 
   addIngredient(): void {
     this.ingredients.push(this.createIngredient());
   }
 
-  removeIngredient(index: number): void {
-    if (this.ingredients.length > 1) {
-      this.ingredients.removeAt(index);
-    }
-  }
 
   onSave() {
     const formData = this.createRecipeForm.value;
     console.log('Данные формы:', formData);
   }
+
 }
