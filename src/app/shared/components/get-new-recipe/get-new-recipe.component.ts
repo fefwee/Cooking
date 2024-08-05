@@ -28,7 +28,7 @@ export class GetNewRecipeComponent {
 
 
   onSubmit() {
-    this.notificationService.setNotification('Готово', 'Теперь вы подписаны на рассылку');
+    this.notificationService.setNotification('Готово', 'Теперь вы подписаны на рассылку',false);
   }
 
 }

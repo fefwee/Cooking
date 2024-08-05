@@ -51,7 +51,7 @@ export class AdminRecipesComponent implements OnInit {
   }
 
 
-  public navigateToRecipe(id: number) {
+  public navigateToRecipe(id: string) {
     this.router.navigate([`/admin/recipes//${id}`])
   };
 

@@ -52,3 +52,20 @@ th {
 .edit{
   color:#3A3395;
 }
+.edit_btn {
+  width: 24px;
+  height: 24px;
+  background-image:url("../../../../assets/square-pen.png");
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size: contain;
+}
+.delete_user {
+  width: 24px;
+  height: 24px;
+  background-image:url("../../../../assets/trash-2.png");
+  background-position:center;
+  background-repeat:no-repeat;
+  background-size: contain;
+}
+

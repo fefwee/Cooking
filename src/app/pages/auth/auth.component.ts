@@ -1,8 +1,10 @@
 import {Component} from '@angular/core';
-import {AuthUserService} from "../../services/auth-user.service";
-import {UserAuth, UserRegister} from "../../types/types";
-import {HttpErrorResponse} from "@angular/common/http";
+import {UserAuth} from "../../types/types";
 import {NotificationService} from "../../services/notification.service";
+import {AuthUser} from "../../store/models/user.model";
+import {Router} from "@angular/router";
+import {Store} from "@ngxs/store";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-auth',
@@ -11,8 +13,10 @@ import {NotificationService} from "../../services/notification.service";
 })
 export class AuthComponent {
 
-  constructor(private authService: AuthUserService,
-              private notificationService: NotificationService) {
+  constructor(
+    private notificationService: NotificationService,
+    private router: Router,
+    private store: Store) {
   }
 
 
@@ -20,14 +24,15 @@ export class AuthComponent {
   }
 
   public authSubmit(user: UserAuth) {
-    this.authService.authUser(user).subscribe({
-      error: (err: HttpErrorResponse) => {
-        if (err.status !== 200) {
-          this.notificationService.setNotification('Ошибка', 'Неверный логин или пароль');
-        }
-      }
-    })
+    this.store.dispatch(new AuthUser(user)).subscribe({
+      next:(val)=>{
+        this.notificationService.setNotification('Успех', 'успех',false);
+        this.router.navigate(['/']);
+      },
+      error:(er:HttpErrorResponse)=>{
+      this.notificationService.setNotification('Ошибка', 'Неверный логин или пароль',true);
+    }
+    });
   }
-
 
 }

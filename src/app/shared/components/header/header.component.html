@@ -5,8 +5,9 @@
     </div>
     <nav class="list_header">
       <ul class="flex_header">
-        <li>Главная</li>
-        <li>Каталог рецептов</li>
+        <li routerLink = "/">Главная</li>
+        <li routerLink = "recipes">Каталог рецептов</li>
+        <li routerLink = "admin">Admin</li>
       </ul>
     </nav>
     <div class="login_header" *ngIf="status">
@@ -23,8 +24,8 @@
           </div>
           <div class="header_user_descriptiion">
             <ul>
-              <li>Ivanov Ivan</li>
-              <li>Пользователь</li>
+              <li>{{userInfo.firstName}}{{userInfo.lastName}}</li>
+              <li>{{userInfo.role}}</li>
             </ul>
           </div>
         </div>

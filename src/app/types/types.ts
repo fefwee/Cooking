@@ -21,7 +21,7 @@ export interface AuthResponseUser {
   avatar: string
   username: string
   jwtToken: string
-  expiresIn: 0
+  expiresIn: 0 | null
 }
 
 export interface Recipe {
@@ -104,4 +104,55 @@ export interface Comments {
     middleName: string
     username: string
   }
+}
+
+export interface User {
+  username: string
+  role: string
+  firstName: string
+  lastName: string
+  middleName: string
+  avatar: string
+  createdOn: string
+  updatedOn: string
+  lastEntry: string
+  isActive: true
+  id: string
+}
+
+export interface SingleUser {
+  username: string
+  role: string
+  firstName: string
+  lastName: string
+  middleName: string
+  avatar: string
+  userAgent: string
+  createdOn: string
+  updatedOn: string
+  lastEntry: string
+  isActive: true
+  posts: [
+    {
+      id: string
+      body: string
+      title: string
+      createdOn: string
+      updatedOn: string
+      _count:{
+        comments:number
+      }
+      image:string
+    }
+  ]
+  comments: [
+    {
+      id: string
+      postId: string
+      text: string
+      createdOn: string
+      updatedOn: string
+    }
+  ]
+  id: string
 }

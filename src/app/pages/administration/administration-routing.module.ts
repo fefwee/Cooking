@@ -4,6 +4,7 @@ import {AdministrationComponent} from "./administration.component";
 import {AdminUsersComponent} from "./admin-users/admin-users.component";
 import {AdminRecipesComponent} from "./admin-recipes/admin-recipes.component";
 import {FormRecipeComponent} from "../../shared/components/form-recipe/form-recipe.component";
+import {SingleUserComponent} from "../../shared/components/single-user/single-user.component";
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'recipes/:id',
     component: FormRecipeComponent
+  },
+  {
+    path: 'users/:id',
+    component: SingleUserComponent
   }
 
 ];

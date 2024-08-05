@@ -22,6 +22,7 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { ModalNotificationComponent } from './components/modal-notification/modal-notification.component';
 import { FormRecipeComponent } from './components/form-recipe/form-recipe.component';
 import { TableModule } from 'primeng/table';
+import { SingleUserComponent } from './components/single-user/single-user.component';
 
 @NgModule({
   imports: [
@@ -50,6 +51,7 @@ import { TableModule } from 'primeng/table';
     CommentsComponent,
     ModalNotificationComponent,
     FormRecipeComponent,
+    SingleUserComponent,
   ],
   exports: [
     FooterComponent,
@@ -73,7 +75,8 @@ import { TableModule } from 'primeng/table';
     ErrorComponent,
     ModalNotificationComponent,
     FormRecipeComponent,
-    TableModule
+    TableModule,
+    SingleUserComponent
   ],
 })
 export class SharedModule {

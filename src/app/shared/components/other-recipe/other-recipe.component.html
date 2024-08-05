@@ -4,7 +4,7 @@
     <div class="logo" >
       <img src="{{ item.image }}" alt="" />
     </div>
-    <div class="description">
+    <div class="description" (click)="navigateToRecipe(item.id)">
       <h3>{{ item.title }}</h3>
       <p>От {{ item.author.firstName }}</p>
     </div>
