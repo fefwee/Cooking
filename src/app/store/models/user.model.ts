@@ -13,10 +13,6 @@ export interface userStateModel {
 }
 
 
-export class GetUser {
-  static readonly type = '[User]: Get User '
-};
-
 export class AuthUser {
   static readonly type = '[User] Auth User'
 
@@ -24,12 +20,8 @@ export class AuthUser {
   }
 }
 
-export class AddUser {
-  static readonly type = '[User]: Add User';
+export class LogoutUser {
+  static readonly type = '[User] Logout';
+}
 
-  constructor(public payload: {
-    username: string
-    password: string
-  }) {
-  }
-};
+

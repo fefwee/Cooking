@@ -112,7 +112,7 @@
             <label class="labelCheck2"
             >
               <div>
-                <h4 class="header_title">{{index+1}}. {{ item.title }}</h4>
+                <h4 class="header_title">{{ index + 1 }}. {{ item.title }}</h4>
                 <p class="header_desc">{{ item.description }}</p>
               </div>
             </label
@@ -126,19 +126,7 @@
     <app-delicious-recipes [forDetail]=true></app-delicious-recipes>
   </section>
   <section *ngIf="recipe ">
-    <app-comments [comments]="comments"></app-comments>
-    <div *ngFor="let item of recipe.comments">
-      <div>
-        <div class="logo_comments">
-          <img src="" alt=""/>
-        </div>
-        <div class="name_comments">
-          <!-- <p>{{ item.user }}</p>
-           <p>{{ item.dateCreated | date : "longDate" }}</p>
-           <p>{{ item.body }}</p>-->
-        </div>
-      </div>
-    </div>
+    <app-comments [comments]="comments"  [id]="recipe.id"></app-comments>
   </section>
 </div>
 

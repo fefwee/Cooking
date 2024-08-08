@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Action, Selector, State, StateContext} from '@ngxs/store';
-import {AuthUser, userStateModel} from './models/user.model';
+import {AuthUser, LogoutUser, userStateModel} from './models/user.model';
 import {AuthUserService} from '../services/auth-user.service';
 import {catchError, tap} from 'rxjs/operators';
 import {EMPTY} from "rxjs";
@@ -59,5 +59,20 @@ export class UserState {
       catchError((error): any => {
       })
     )
+  }
+
+  @Action(LogoutUser)
+  LogoutUser({ setState }: StateContext<userStateModel>) {
+    setState({
+      id: "",
+      role: "",
+      firstName: "",
+      lastName: "",
+      middleName: "",
+      avatar: "",
+      username: "",
+      jwtToken: "",
+      expiresIn: null
+    });
   }
 }

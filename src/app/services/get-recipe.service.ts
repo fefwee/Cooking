@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Recipe, RecipeSingle} from "../types/types";
+import {CreateRecipe, Recipe, RecipeSingle} from "../types/types";
 import {environment} from "../environments/environment";
 
 @Injectable({
@@ -31,8 +31,8 @@ export class GetRecipeService {
     return this.http.get<RecipeSingle>(url);
   }
 
-  public createRecipe(recipe: Recipe): Observable<Recipe> {
-    return this.http.post<Recipe>(this.createUrl, recipe)
+  public createRecipe(recipe: CreateRecipe): Observable<CreateRecipe> {
+    return this.http.post<CreateRecipe>(this.createUrl, recipe)
   }
 
   public updateRecipe(recipe: Recipe): Observable<Recipe> {

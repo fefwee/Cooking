@@ -16,8 +16,8 @@
     <form [formGroup]="comment">
       <label for="comment">Ваш комментарии</label>
       <div class="textarea-container">
-        <textarea id="comment"></textarea>
-        <button type="submit" class="submit-btn">
+        <textarea id="comment" formControlName = "text"></textarea>
+        <button type="submit" class="submit-btn" (click)="submitComment()">
           <img src="../../../../assets/Mail.png" alt="Icon" />
           Отправить
         </button>

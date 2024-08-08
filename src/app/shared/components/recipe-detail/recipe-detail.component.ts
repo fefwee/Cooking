@@ -52,28 +52,6 @@ export class RecipeDetailComponent implements OnInit {
     updatedOn: ""
   };
 
-  public selectRecipe = [
-    {
-      header: 'Lorem ipsum dolor sit amet',
-      title: 'As for me, I cant say that food is just a fuel but its surely',
-    },
-    {
-      header: 'Lorem ipsum dolor sit amet',
-      title: 'I suppose I have traditional meals such as breakfast, lunch and dinner'
-    },
-    {
-      header: 'Lorem ipsum dolor sit amet',
-      title: 'I suppose I have traditional meals such as breakfast, lunch and dinner'
-    },
-    {
-      header: 'Lorem ipsum dolor sit amet',
-      title: 'I suppose I have traditional meals such as breakfast, lunch and dinner'
-    },
-    {
-      header: 'Lorem ipsum dolor sit amet',
-      title: 'I suppose I have traditional meals such as breakfast, lunch and dinner'
-    }
-  ]
 
   constructor(
     private getRecipeService: GetRecipeService,

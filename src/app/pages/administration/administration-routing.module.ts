@@ -5,11 +5,14 @@ import {AdminUsersComponent} from "./admin-users/admin-users.component";
 import {AdminRecipesComponent} from "./admin-recipes/admin-recipes.component";
 import {FormRecipeComponent} from "../../shared/components/form-recipe/form-recipe.component";
 import {SingleUserComponent} from "../../shared/components/single-user/single-user.component";
+import {roleAccessGuard} from "../../guards/role-model";
 
 const routes: Routes = [
   {
     path: '',
     component: AdministrationComponent,
+    canActivate: [roleAccessGuard],
+    data: { requiredRole: 'admin' },
     children: [
       {
         path: '',
@@ -18,21 +21,29 @@ const routes: Routes = [
       },
       {
         path: 'users',
-        component: AdminUsersComponent
+        component: AdminUsersComponent,
+        canActivate: [roleAccessGuard],
+        data: { requiredRole: 'admin' }
       },
       {
         path: 'recipes',
-        component: AdminRecipesComponent
+        component: AdminRecipesComponent,
+        canActivate: [roleAccessGuard],
+        data: { requiredRole: 'admin' }
       },
     ]
   },
   {
     path: 'recipes/:id',
-    component: FormRecipeComponent
+    component: FormRecipeComponent,
+    canActivate: [roleAccessGuard],
+    data: { requiredRole: 'admin' }
   },
   {
     path: 'users/:id',
-    component: SingleUserComponent
+    component: SingleUserComponent,
+    canActivate: [roleAccessGuard],
+    data: { requiredRole: 'admin' }
   }
 
 ];

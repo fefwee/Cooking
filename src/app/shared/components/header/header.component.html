@@ -1,48 +1,48 @@
-<header>
-  <div class="header container">
-    <div class="logo_header">
-      <img src="../../../assets/Foodie.png" alt="">
-    </div>
-    <nav class="list_header">
-      <ul class="flex_header">
-        <li routerLink="/">Главная</li>
-        <li routerLink="recipes">Каталог рецептов</li>
-        <li *ngIf="userInfo.role === 'admin'" routerLink="create-recipe">Создание рецепта</li>
-      </ul>
-    </nav>
-    <div class="flex_header">
-      <div class="user_header" *ngIf="userInfo.jwtToken" (click)="toggleActiveBlock()">
-        <img src="../../../../assets/user.png" alt="">
+  <header>
+    <div class="header container">
+      <div class="logo_header">
+        <img src="../../../assets/Foodie.png" alt="">
       </div>
-      <div>
-        <div class="flex_header">
-          <div *ngIf="!userInfo.jwtToken">
-            <button class="btn_blue open_btn" routerLink = "authorization">Вход в аккаунт</button>
-          </div>
-          <div class="header_user_descriptiion" (click)="toggleActiveBlock()" *ngIf="userInfo.jwtToken">
-            <div class="logo_user">
-              <img src="{{userInfo.avatar}}" alt="">
+      <nav class="list_header">
+        <ul class="flex_header">
+          <li routerLink="/">Главная</li>
+          <li routerLink="recipes">Каталог рецептов</li>
+          <li *ngIf="userInfo.jwtToken" routerLink="create-recipe">Создание рецепта</li>
+        </ul>
+      </nav>
+      <div class="flex_header">
+        <div class="user_header" *ngIf="userInfo.jwtToken" (click)="toggleActiveBlock($event)">
+          <img src="../../../../assets/user.png" alt="">
+        </div>
+        <div>
+          <div class="flex_header">
+            <div *ngIf="!userInfo.jwtToken">
+              <button class="btn_blue open_btn" routerLink = "authorization">Вход в аккаунт</button>
             </div>
+            <div class="header_user_descriptiion" (click)="toggleActiveBlock($event)" *ngIf="userInfo.jwtToken">
+              <div class="logo_user">
+                <img src="{{userInfo.avatar}}" alt="">
+              </div>
+              <ul>
+                <li class="user_name">{{ userInfo.firstName }} {{ userInfo.lastName }}</li>
+                <li class="user_username">{{ userInfo.role }}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="header_bottom_block" *ngIf="activeBlock"  #headerBottomBlock>
             <ul>
-              <li class="user_name">{{ userInfo.firstName }} {{ userInfo.lastName }}</li>
-              <li class="user_username">{{ userInfo.role }}</li>
+              <li class="flex_user">
+                <span>Вы вошли как</span>
+                <p>{{ userInfo.role }}</p>
+              </li>
+              <li class="user_admin">
+                <p>Настройки аккаунта</p>
+                <p routerLink = "admin" *ngIf="userInfo.role === 'admin'">Администрирование</p>
+              </li>
+              <li class="exit_btn" (click)="logout()">Выход</li>
             </ul>
           </div>
         </div>
-        <div class="header_bottom_block" *ngIf="activeBlock">
-          <ul>
-            <li class="flex_user">
-              <span>Вы вошли как</span>
-              <p>{{ userInfo.role }}</p>
-            </li>
-            <li class="user_admin">
-              <p>Настройки аккаунта</p>
-              <p routerLink = "admin">Администрирование</p>
-            </li>
-            <li class="exit_btn">Выход</li>
-          </ul>
-        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>

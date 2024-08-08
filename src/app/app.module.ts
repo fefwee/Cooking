@@ -13,6 +13,8 @@ import {GetUsersService} from "./services/get-users.service";
 import {GetRecipeService} from "./services/get-recipe.service";
 import {AuthInterseptorInterceptor} from "./interseptors/auth-interseptor.interceptor";
 import {FavoriteState} from "./store/state/favorite.state";
+import {roleAccessGuard} from "./guards/role-model";
+import {CommentService} from "./services/comment.service";
 
 @NgModule({
   declarations: [
@@ -23,10 +25,13 @@ import {FavoriteState} from "./store/state/favorite.state";
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
-    NgxsModule.forRoot([UserState,FavoriteState]),
+    NgxsModule.forRoot([UserState, FavoriteState]),
     NgxsLoggerPluginModule.forRoot(),
   ],
-  providers: [AuthUserService, GetUsersService, GetRecipeService, {
+  providers: [AuthUserService, GetUsersService, GetRecipeService, CommentService, {
+    provide: 'roleAccessGuard',
+    useValue: roleAccessGuard
+  }, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterseptorInterceptor,
     multi: true

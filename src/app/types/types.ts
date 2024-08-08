@@ -139,10 +139,10 @@ export interface SingleUser {
       title: string
       createdOn: string
       updatedOn: string
-      _count:{
-        comments:number
+      _count: {
+        comments: number
       }
-      image:string
+      image: string
     }
   ]
   comments: [
@@ -155,4 +155,35 @@ export interface SingleUser {
     }
   ]
   id: string
+}
+
+export interface CreateRecipe {
+  body: string
+  title: string
+  tags: [
+    string
+  ]
+  image: string
+  timeCooking: number
+  foodValue: {
+    calories: number
+    fats: number
+    carbohydrates: number
+    proteins: number
+  }
+  cookingSteps: [
+    {
+      title: string
+      description: string
+    }
+  ]
+  ingredients: [
+    {
+      title: string
+      description: string
+    }
+  ]
+}
+export interface AddComment{
+    text: string
 }

@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
 import {AuthUserService} from "../../../services/auth-user.service";
 import {Store} from "@ngxs/store";
 import {UserState} from "../../../store/store";
-import {userStateModel} from "../../../store/models/user.model";
+import {LogoutUser, userStateModel} from "../../../store/models/user.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,7 @@ import {userStateModel} from "../../../store/models/user.model";
 })
 export class HeaderComponent implements  OnInit{
 
+  @ViewChild('headerBottomBlock') headerBottomBlock!: ElementRef;
 
   public userInfo: userStateModel = {
     id: "",
@@ -28,7 +30,7 @@ export class HeaderComponent implements  OnInit{
 
 
   constructor(
-    private store: Store) {
+    private store: Store,private router: Router,) {
   }
 
 
@@ -41,9 +43,21 @@ export class HeaderComponent implements  OnInit{
   }
 
 
-  public toggleActiveBlock = (): void => {
+  public toggleActiveBlock = (event: Event): void => {
+    event.stopPropagation();
     this.activeBlock = !this.activeBlock;
   }
+  public  logout() {
+    this.store.dispatch(new LogoutUser());
+    this.activeBlock = false;
+    this.router.navigate(['/']);
+  }
 
+  @HostListener('document:click', ['$event'])
+  public onClick(event: Event): void {
+    if (this.activeBlock && this.headerBottomBlock && !this.headerBottomBlock.nativeElement.contains(event.target)) {
+      this.activeBlock = false;
+    }
+  }
 
 }
