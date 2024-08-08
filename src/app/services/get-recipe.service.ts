@@ -39,5 +39,13 @@ export class GetRecipeService {
     return this.http.post<Recipe>(this.updateUrl, recipe)
   }
 
+  public deleteRecipe(id: string): Observable<Recipe> {
+    const url = `${this.url}/${id}`
+    return this.http.delete<Recipe>(url)
+  }
+  public deleteUser(id: string): Observable<Recipe> {
+    const url = `${this.url}/${id}`
+    return this.http.delete<Recipe>(url)
+  }
 
 }

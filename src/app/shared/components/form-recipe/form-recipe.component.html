@@ -13,9 +13,9 @@
             <p>Название рецепта</p>
           </label>
           <div class="max_field input position_field">
-            <input pInputText formControlName="nameRecipe" value="{{preloadData && recipe.title}}"/>
+            <input pInputText formControlName="nameRecipe"/>
             <span class="err_img"
-                  *ngIf="!createRecipeForm.controls['nameRecipe'].valid && createRecipeForm.controls['nameRecipe'].touched">
+                  *ngIf="!createRecipeForm.get('nameRecipe')?.valid && createRecipeForm.get('nameRecipe')?.touched">
             </span>
           </div>
         </div>
@@ -29,10 +29,9 @@
               cols="30"
               pInputTextarea
               formControlName="descRecipe"
-              value="{{preloadData && recipe.body}}"
             ></textarea>
             <span class="err_img"
-                  *ngIf="!createRecipeForm.controls['descRecipe'].valid && createRecipeForm.controls['descRecipe'].touched">
+                  *ngIf="!createRecipeForm.get('descRecipe')?.valid && createRecipeForm.get('descRecipe')?.touched">
             </span>
             <p>Опишите о чем ваш рецепт</p>
           </div>
@@ -47,9 +46,9 @@
             <p>Категория</p>
           </label>
           <div class="min_field position_field">
-            <input pInputText formControlName="categories" value="{{preloadData && recipe.tags[0]}}"/>
+            <input pInputText formControlName="categories"/>
             <span class="err_img"
-                  *ngIf="!createRecipeForm.controls['categories'].valid && createRecipeForm.controls['categories'].touched">
+                  *ngIf="!createRecipeForm.get('categories')?.valid && createRecipeForm.get('categories')?.touched">
             </span>
           </div>
         </div>
@@ -58,9 +57,9 @@
             <p>Время приготовления</p>
           </label>
           <div class="min_field position_field">
-            <input pInputText formControlName="timeCooking" value="{{preloadData && recipe.timeCooking}}"/>
+            <input pInputText formControlName="timeCooking"/>
             <span class="err_img"
-                  *ngIf="!createRecipeForm.controls['timeCooking'].valid && createRecipeForm.controls['timeCooking'].touched">
+                  *ngIf="!createRecipeForm.get('timeCooking')?.valid && createRecipeForm.get('timeCooking')?.touched">
             </span>
           </div>
         </div>
@@ -69,9 +68,9 @@
             <p>Белки</p>
           </label>
           <div class="max_field input position_field">
-            <input pInputText formControlName="belki" value="{{preloadData && recipe.foodValue.proteins}}"/>
+            <input pInputText formControlName="belki"/>
             <span class="err_img"
-                  *ngIf="!createRecipeForm.controls['belki'].valid && createRecipeForm.controls['belki'].touched">
+                  *ngIf="!createRecipeForm.get('belki')?.valid && createRecipeForm.get('belki')?.touched">
             </span>
           </div>
         </div>
@@ -80,9 +79,9 @@
             <p>Жиры</p>
           </label>
           <div class="min_field position_field">
-            <input pInputText formControlName="fats" value="{{preloadData && recipe.foodValue.fats}}"/>
+            <input pInputText formControlName="fats"/>
             <span class="err_img"
-                  *ngIf="!createRecipeForm.controls['fats'].valid && createRecipeForm.controls['fats'].touched">
+                  *ngIf="!createRecipeForm.get('fats')?.valid && createRecipeForm.get('fats')?.touched">
             </span>
           </div>
         </div>
@@ -91,10 +90,9 @@
             <p>Углеводы</p>
           </label>
           <div class="min_field position_field">
-            <input pInputText formControlName="carbohydrates"
-                   value="{{preloadData && recipe.foodValue.carbohydrates}}"/>
+            <input pInputText formControlName="carbohydrates"/>
             <span class="err_img"
-                  *ngIf="!createRecipeForm.controls['carbohydrates']?.valid && createRecipeForm.controls['carbohydrates']?.touched">
+                  *ngIf="!createRecipeForm.get('carbohydrates')?.valid && createRecipeForm.get('carbohydrates')?.touched">
             </span>
           </div>
         </div>
@@ -103,9 +101,9 @@
             <p>Калории</p>
           </label>
           <div class="min_field position_field">
-            <input pInputText formControlName="calories" value="{{preloadData && recipe.foodValue.calories}}"/>
+            <input pInputText formControlName="calories"/>
             <span class="err_img"
-                  *ngIf="!createRecipeForm.controls['calories']?.valid && createRecipeForm.controls['calories']?.touched">
+                  *ngIf="!createRecipeForm.get('calories')?.valid && createRecipeForm.get('calories')?.touched">
             </span>
           </div>
         </div>
@@ -122,8 +120,8 @@
               <div class="min_field position_field">
                 <input pInputText formControlName="firstStep"/>
                 <span class="err_img"
-                      *ngIf="!createRecipeForm.controls['firstStep']?.valid && createRecipeForm.controls['firstStep']?.touched">
-            </span>
+                      *ngIf="!steps.at(i).get('firstStep')?.valid && steps.at(i).get('firstStep')?.touched">
+                </span>
               </div>
             </div>
             <div class="input_field">
@@ -138,8 +136,8 @@
                   formControlName="descFirstStep"
                 ></textarea>
                 <span class="err_img"
-                      *ngIf="!createRecipeForm.controls['descFirstStep']?.valid && createRecipeForm.controls['descFirstStep']?.touched">
-            </span>
+                      *ngIf="!steps.at(i).get('descFirstStep')?.valid && steps.at(i).get('descFirstStep')?.touched">
+                </span>
               </div>
             </div>
           </div>
@@ -170,9 +168,7 @@
                   cols="20"
                   pInputTextarea
                   formControlName="descIngredient"
-                  rows="5"
-                  cols="30"
-                  pInputTextarea ></textarea>
+                ></textarea>
               </div>
             </div>
           </div>
@@ -182,10 +178,10 @@
         </div>
       </div>
       <div class="send_btn">
-      <button class="button_subm" (click)="onSave()">
-        <i class="icon fas fa-search"><img src="../../../../assets/Mai1l.png" alt=""></i>
-        <span class="text">{{ recipe.id ? 'Редактировать рецепт':'Отправить рецепт'}}</span>
-      </button>
+        <button class="button_subm" (click)="onSave()">
+          <i class="icon fas fa-search"><img src="../../../../assets/Mai1l.png" alt=""></i>
+          <span class="text">{{ recipe.id ? 'Редактировать рецепт' : 'Отправить рецепт' }}</span>
+        </button>
       </div>
     </form>
   </div>

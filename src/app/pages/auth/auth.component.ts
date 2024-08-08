@@ -19,19 +19,15 @@ export class AuthComponent {
     private store: Store) {
   }
 
-
-  ngOnInit(): void {
-  }
-
   public authSubmit(user: UserAuth) {
     this.store.dispatch(new AuthUser(user)).subscribe({
-      next:(val)=>{
-        this.notificationService.setNotification('Успех', 'успех',false);
+      next: (val) => {
+        this.notificationService.setNotification('Успешно', 'Вы успешно авторизовались', false);
         this.router.navigate(['/']);
       },
-      error:(er:HttpErrorResponse)=>{
-      this.notificationService.setNotification('Ошибка', 'Неверный логин или пароль',true);
-    }
+      error: (er: HttpErrorResponse) => {
+        this.notificationService.setNotification('Ошибка', 'Неверный логин или пароль', true);
+      }
     });
   }
 

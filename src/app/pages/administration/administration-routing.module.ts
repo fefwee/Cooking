@@ -12,7 +12,7 @@ const routes: Routes = [
     path: '',
     component: AdministrationComponent,
     canActivate: [roleAccessGuard],
-    data: { requiredRole: 'admin' },
+    data: { requiredRole: 'admin',hideFooter: true, hideHeaderFooter: false},
     children: [
       {
         path: '',
@@ -23,13 +23,13 @@ const routes: Routes = [
         path: 'users',
         component: AdminUsersComponent,
         canActivate: [roleAccessGuard],
-        data: { requiredRole: 'admin' }
+        data: { requiredRole: 'admin',hideFooter: true, hideHeaderFooter: false }
       },
       {
         path: 'recipes',
         component: AdminRecipesComponent,
         canActivate: [roleAccessGuard],
-        data: { requiredRole: 'admin' }
+        data: { requiredRole: 'admin' ,hideFooter: true, hideHeaderFooter: false}
       },
     ]
   },
@@ -37,13 +37,13 @@ const routes: Routes = [
     path: 'recipes/:id',
     component: FormRecipeComponent,
     canActivate: [roleAccessGuard],
-    data: { requiredRole: 'admin' }
+    data: { requiredRole: 'admin' ,hideFooter: true, hideHeaderFooter: false}
   },
   {
     path: 'users/:id',
     component: SingleUserComponent,
     canActivate: [roleAccessGuard],
-    data: { requiredRole: 'admin' }
+    data: { requiredRole: 'admin' ,hideFooter: true, hideHeaderFooter: false}
   }
 
 ];

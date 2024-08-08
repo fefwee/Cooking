@@ -7,5 +7,6 @@ export const environment = {
   getAllUsers:"https://evo-academy.wckz.dev/api/cooking-blog/users/",
   createRecipe:"https://evo-academy.wckz.dev/api/cooking-blog/posts/create",
   updateRecipe:"https://evo-academy.wckz.dev/api/cooking-blog/posts/",
-  addComment:"https://evo-academy.wckz.dev/api/cooking-blog/posts/"
+  addComment:"https://evo-academy.wckz.dev/api/cooking-blog/posts/",
+  deleteUser:"https://evo-academy.wckz.dev/api/cooking-blog/users/"
 };

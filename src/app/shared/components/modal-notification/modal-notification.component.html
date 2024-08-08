@@ -17,7 +17,8 @@
     </div>
     <div class="modal-footer">
       <button class="btn_white" (click)="closeModal()">Закрыть</button>
-      <button class="{{error ? 'btn_red': 'btn_blue'}}">{{error ? 'Удалить' : 'Поделиться'}}</button>
+      <button *ngIf="error" class="btn_red" (click)="deleteItem()">Удалить</button>
+      <button *ngIf="!error" class="btn_blue" (click)="deleteItem()">Поделиться</button>
     </div>
   </div>
 </div>

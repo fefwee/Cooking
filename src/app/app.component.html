@@ -1,13 +1,18 @@
-<div>
+<div *ngIf="!hideHeader">
   <section>
     <app-header></app-header>
   </section>
-  <section>
-    <router-outlet></router-outlet>
-  </section>
+</div>
+
+<section>
+  <router-outlet></router-outlet>
+</section>
+
+<div *ngIf="!hideFooter">
   <footer>
     <app-footer></app-footer>
   </footer>
 </div>
+
 <app-notification></app-notification>
 <app-modal-notification></app-modal-notification>

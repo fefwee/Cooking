@@ -46,11 +46,13 @@ const routes: Routes = [
   },
   {
     path: 'noaccess',
-    component: NoaccessComponent
+    component: NoaccessComponent,
+    data: {hideFooter: true, hideHeaderFooter: true}
   },
   {
     path: '**',
-    component: ErrorComponent
+    component: ErrorComponent,
+    data: {hideFooter: true, hideHeaderFooter: true},
   }
 
 ];

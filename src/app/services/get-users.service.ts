@@ -11,10 +11,12 @@ export class GetUsersService {
 
 
   private url: string;
+  private  deleteUrl: string;
 
 
   constructor(private http: HttpClient) {
     this.url = environment.getAllUsers;
+    this.deleteUrl = environment.deleteUser;
   }
 
   public getAllUsers(): Observable<User[]> {
@@ -23,5 +25,10 @@ export class GetUsersService {
 
   public getSingleUser(uuid: string | null): Observable<SingleUser> {
     return this.http.get<SingleUser>(`${this.url}${uuid}`);
+  }
+
+  public deleteUsers(id:string):Observable<any>{
+    const url = this.deleteUrl+id;
+    return this.http.delete(url);
   }
 }

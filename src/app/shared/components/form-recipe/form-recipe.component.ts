@@ -11,6 +11,7 @@
   })
   export class FormRecipeComponent implements OnInit {
 
+
     @Input() preloadData: boolean = true;
     @Output() OnSubmit = new EventEmitter<CreateRecipe>();
     public title: string = 'Создание рецепта';
@@ -27,7 +28,7 @@
       },
       body: "",
       comments: [],
-      cookingSteps: [{title: '', description: ''}],
+      cookingSteps: [{ title: '', description: '' }],
       createdOn: "",
       foodValue: {
         calories: 0,
@@ -37,7 +38,7 @@
       },
       id: "",
       image: "",
-      ingredients: [{title: '', description: ''}],
+      ingredients: [{ title: '', description: '' }],
       tags: [],
       timeCooking: 0,
       title: "",
@@ -47,9 +48,8 @@
     constructor(
       private fb: FormBuilder,
       protected service: GetRecipeService,
-      protected route: ActivatedRoute,
-    ) {
-    }
+      protected route: ActivatedRoute
+    ) {}
 
     ngOnInit(): void {
       const id = this.route.snapshot.paramMap.get('id');
@@ -64,7 +64,6 @@
         this.createForm(this.recipe);
       }
     }
-
 
     createForm(val: RecipeSingle) {
       this.createRecipeForm = this.fb.group({
@@ -81,7 +80,6 @@
       });
     }
 
-
     get steps(): FormArray {
       return this.createRecipeForm.get('steps') as FormArray;
     }
@@ -92,7 +90,6 @@
         descFirstStep: [step?.description || '', [Validators.required]]
       });
     }
-
 
     addStep(): void {
       this.steps.push(this.createStep());
@@ -109,37 +106,37 @@
       });
     }
 
-
     addIngredient(): void {
       this.ingredients.push(this.createIngredient());
     }
 
     onSave() {
-      const formData = this.createRecipeForm.value;
+      if (this.createRecipeForm.valid) {
+        const formData = this.createRecipeForm.value;
 
-      const recipeCreateData: CreateRecipe = {
-        body: formData.descRecipe,
-        cookingSteps: formData.steps.map((step: any) => ({
-          description: step.descFirstStep,
-          title: step.firstStep
-        })),
-        foodValue: {
-          calories: Number(formData.calories),
-          carbohydrates: Number(formData.carbohydrates),
-          fats: Number(formData.fats),
-          proteins: Number(formData.belki)
-        },
-        image: formData.image,
-        ingredients: formData.ingredients.map((ingredient: any) => ({
-          description: ingredient.descIngredient,
-          title: ingredient.nameIngredient
-        })),
-        tags: formData.categories.split(',').map((tag: string) => tag.trim()),
-        timeCooking: Number(formData.timeCooking),
-        title: formData.nameRecipe
-      };
-      this.OnSubmit.emit(recipeCreateData);
+        const recipeCreateData: CreateRecipe = {
+          body: formData.descRecipe,
+          cookingSteps: formData.steps.map((step: any) => ({
+            description: step.descFirstStep,
+            title: step.firstStep
+          })),
+          foodValue: {
+            calories: Number(formData.calories),
+            carbohydrates: Number(formData.carbohydrates),
+            fats: Number(formData.fats),
+            proteins: Number(formData.belki)
+          },
+          image: formData.image,
+          ingredients: formData.ingredients.map((ingredient: any) => ({
+            description: ingredient.descIngredient,
+            title: ingredient.nameIngredient
+          })),
+          tags: formData.categories.split(',').map((tag: string) => tag.trim()),
+          timeCooking: Number(formData.timeCooking),
+          title: formData.nameRecipe
+        };
+        this.OnSubmit.emit(recipeCreateData);
+      }
     }
-
 
   }

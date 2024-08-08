@@ -22,7 +22,7 @@ export class RegisterComponent {
     console.log(user);
     this.registerService.registerUser(user).subscribe({
       next: (value: AuthResponseUser) => {
-        this.notificationService.setNotification('Registration Successful', 'You have registered successfully.',true);
+        this.notificationService.setNotification('Успешно', 'Вы успешно зарегистрировались',true);
         this.router.navigate(['/']);
 
       }

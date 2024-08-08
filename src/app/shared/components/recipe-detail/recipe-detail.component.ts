@@ -85,6 +85,7 @@ export class RecipeDetailComponent implements OnInit {
     this.modalRef = this.modalContainer.createComponent(factory);
     this.modalRef.instance.title = 'Поделиться этим рецептом?';
     this.modalRef.instance.desc = 'Вы хотите поделиться этим рецептом со всеми?';
+    this.modalRef.instance.deleteType = 'share';
     this.modalRef.instance.open.subscribe((isOpen: boolean) => {
       if (!isOpen) {
         this.modalContainer.clear();

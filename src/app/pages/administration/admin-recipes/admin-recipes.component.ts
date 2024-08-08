@@ -33,7 +33,7 @@ export class AdminRecipesComponent implements OnInit {
     });
   }
 
-  public deleteRecipe() {
+  public deleteRecipe(id: string) {
     this.modalContainer.clear();
 
     const factory = this.componentFactoryResolver.resolveComponentFactory(ModalNotificationComponent);
@@ -46,7 +46,8 @@ export class AdminRecipesComponent implements OnInit {
         this.modalContainer.clear();
       }
     });
-
+    this.modalRef.instance.itemId = id;
+    this.modalRef.instance.deleteType = 'recipe';
     this.modalRef.instance.openModal();
   }
 

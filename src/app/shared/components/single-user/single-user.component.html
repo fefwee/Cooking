@@ -19,7 +19,7 @@
             </div>
           </li>
           <li>
-            <button class="btn_red">Удалить</button>
+            <button class="btn_red" (click)="deleteUser(user.id)">Удалить</button>
           </li>
         </ul>
       </div>
@@ -71,3 +71,4 @@
     </div>
   </section>
 </div>
+<div #modalContainer></div>
