@@ -1,21 +1,21 @@
 <div class="{{deliciousBlock ? 'wrapper_item_recipe_delicious container':'wrapper_item_recipe container'}}">
   <div *ngFor="let item of recipe">
     <div class="{{deliciousBlock ? 'background_wrapper_delicious':'background_wrapper'}}">
-      <ul class="container_item_recipe" (click)="navigateToRecipeDetail(item.id)">
+      <ul class="container_item_recipe">
         <div class="favorite_icon">
-          <div *ngIf="favoriteAddBtn" class="favorite_icon_block">
+          <div *ngIf="isFavorite(item) | async" class="favorite_icon_block" (click)="addRecipeToFavorites(item)">
             <img src="../../../../assets/active.png" alt="">
           </div>
-          <div *ngIf="!favoriteAddBtn" class="favorite_icon_block">
+          <div *ngIf="!(isFavorite(item) | async)" class="favorite_icon_block" (click)="addRecipeToFavorites(item)">
             <img src="../../../../assets/noactive.png" alt="">
           </div>
         </div>
-        <li>
+        <li (click)="navigateToRecipeDetail(item.id)">
           <div class="logo">
             <img src="{{item.image}}" alt="">
           </div>
         </li>
-        <li class="item_recipe_title">
+        <li class="item_recipe_title" (click)="navigateToRecipeDetail(item.id)">
           <h4>
             {{ item.title }}
           </h4>

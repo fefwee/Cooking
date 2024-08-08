@@ -12,6 +12,7 @@ import {UserState} from "./store/store";
 import {GetUsersService} from "./services/get-users.service";
 import {GetRecipeService} from "./services/get-recipe.service";
 import {AuthInterseptorInterceptor} from "./interseptors/auth-interseptor.interceptor";
+import {FavoriteState} from "./store/state/favorite.state";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import {AuthInterseptorInterceptor} from "./interseptors/auth-interseptor.interc
     AppRoutingModule,
     SharedModule,
     HttpClientModule,
-    NgxsModule.forRoot([UserState]),
+    NgxsModule.forRoot([UserState,FavoriteState]),
     NgxsLoggerPluginModule.forRoot(),
   ],
   providers: [AuthUserService, GetUsersService, GetRecipeService, {

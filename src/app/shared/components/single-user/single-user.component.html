@@ -1,15 +1,20 @@
 <div class="container">
-  <section>
+  <section class="user_header">
     <div class="header_user">
       <div class="left_user_block">
-        <ul>
-          <li>
+        <ul class="flex_section">
+          <li class="flex">
             <div class="logo"><img src="{{user.avatar}}" alt=""></div>
             <div>
               <ul>
-                <li>{{ user.firstName }} {{ user.lastName }} <span>{{ user.role }}</span></li>
-                <li>Создан {{ user.createdOn }}</li>
-                <li>{{ user.username }}</li>
+                <li class="user_name"><h4>{{ user.firstName }} {{ user.lastName }}</h4>
+                  <div class="block_role_user">
+                    <div class="user_active"></div>
+                    <span class="user_role">{{ user.role }}</span>
+                  </div>
+                </li>
+                <li class="time_create"><p>Создан {{ user.createdOn | time}}</p></li>
+                <li><p>{{ user.username }}</p></li>
               </ul>
             </div>
           </li>
@@ -20,7 +25,7 @@
       </div>
     </div>
   </section>
-  <section>
+  <section class="user_recipe_section user_container">
     <div class="user_status">
       <ul>
         <li>
@@ -37,28 +42,30 @@
       </ul>
     </div>
   </section>
-  <section>
+  <section class="user_container">
     <div class="user_recipe">
-      <h3>Созданные рецепты</h3>
-      <div *ngFor="let item of user.posts">
-        <ul>
-          <li><img src="{{item.image}}" alt=""></li>
-          <li>{{ item.title }}</li>
-          <li>Создан {{ item.createdOn }}</li>
-        </ul>
+      <h6>Созданные рецепты</h6>
+      <div class="recipe_block_user">
+      <div *ngFor="let item of user.posts" >
+          <ul class="single_recipe_block">
+            <li><img src="{{item.image}}" alt=""></li>
+            <li class="title_recipe"><p>{{ item.title }}</p></li>
+            <li>Создан {{ item.createdOn | time  }}</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
-  <section>
-    <div class="user_information">
-      <h3>Инфомрмация аккаунта</h3>
+  <section class="user_container user_information">
+    <div>
+      <h6>Инфомрмация аккаунта</h6>
       <div>
-        <ul>
-          <li>Фамилия {{ user.middleName }}</li>
-          <li>Имя {{ user.firstName }}</li>
-          <li>Отчество {{ user.lastName }}</li>
-          <li>User-Agent {{ user.userAgent }}</li>
-          <li>Последний раз заходил {{ user.lastEntry }}</li>
+        <ul class="list_info_user">
+          <li><p>Фамилия</p> {{ user.lastName }}</li>
+          <li><p>Имя</p> {{ user.firstName }}</li>
+          <li><p>Отчество</p> {{ user.middleName }}</li>
+          <li><p>User-Agent</p> {{ user.userAgent }}</li>
+          <li><p>Последний раз заходил</p> {{ user.lastEntry | time}}</li>
         </ul>
       </div>
     </div>

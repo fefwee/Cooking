@@ -23,6 +23,9 @@ import { ModalNotificationComponent } from './components/modal-notification/moda
 import { FormRecipeComponent } from './components/form-recipe/form-recipe.component';
 import { TableModule } from 'primeng/table';
 import { SingleUserComponent } from './components/single-user/single-user.component';
+import {TimePipe} from "../pipes/time.pipe";
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { NoaccessComponent } from './components/noaccess/noaccess.component';
 
 @NgModule({
   imports: [
@@ -31,9 +34,11 @@ import { SingleUserComponent } from './components/single-user/single-user.compon
     ReactiveFormsModule,
     InputTextModule,
     MatButtonModule,
-    TableModule
+    TableModule,
+    InputTextareaModule
   ],
   declarations: [
+    TimePipe,
     ErrorComponent,
     NotificationComponent,
     RecipeDetailComponent,
@@ -52,6 +57,7 @@ import { SingleUserComponent } from './components/single-user/single-user.compon
     ModalNotificationComponent,
     FormRecipeComponent,
     SingleUserComponent,
+    NoaccessComponent,
   ],
   exports: [
     FooterComponent,
@@ -76,7 +82,9 @@ import { SingleUserComponent } from './components/single-user/single-user.compon
     ModalNotificationComponent,
     FormRecipeComponent,
     TableModule,
-    SingleUserComponent
+    SingleUserComponent,
+    TimePipe,
+    InputTextareaModule
   ],
 })
 export class SharedModule {

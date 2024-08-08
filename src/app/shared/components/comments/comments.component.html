@@ -1,10 +1,16 @@
 <div class="container">
-  <div *ngFor="let item of comments">
+  <h3>Комментарии</h3>
+  <div *ngFor="let item of comments" class="comments_list">
+    <div class="flex_comments">
+    <div class="logo_comments">
+      <img src="{{item.user.avatar}}" alt="">
+    </div>
     <ul>
-      <li>{{item.user.firstName}}</li>
-      <li>{{item.createdOn}}</li>
-      <li>{{item.text}}</li>
+      <li class="text_style">{{item.user.firstName}}</li>
+      <li class="text_time">{{item.createdOn  | date:'dd.MM.yy HH:mm'}}</li>
+      <li  class="text_style">{{item.text}}</li>
     </ul>
+    </div>
   </div>
   <div class="comment-container">
     <form [formGroup]="comment">

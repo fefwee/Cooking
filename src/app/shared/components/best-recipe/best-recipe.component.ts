@@ -29,10 +29,9 @@ export class BestRecipeComponent implements OnInit {
   }
 
   public addRecipe(status: boolean): void {
-    if (status) {
+    if (!status) {
       this.fetchRecipes(6);
     }
-    console.log(status);
   }
 
 

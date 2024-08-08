@@ -1,9 +1,9 @@
-<div class="container">
+<div class="wrapper_slider">
   <div class="btn_box">
     <button class="prev" (click)="prevSlide()"></button>
     <button class="next" (click)="nextSlide()"></button>
   </div>
-  <div class="wrapper" #wrapper>
+  <div class="container " #wrapper>
     <div class="slide" [ngClass]="{'active': currentIndex === i}" *ngFor="let slide of slides; let i = index">
       <div class="slide_container">
         <div class="slide_content">

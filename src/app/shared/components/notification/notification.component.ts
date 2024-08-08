@@ -27,7 +27,7 @@ export class NotificationComponent implements OnInit {
         this.name = notification.name;
         this.desc = notification.desc;
         this.visible = true;
-
+        setTimeout(()=>{this.visible = false},3000)
       } else {
         this.visible = false;
       }
@@ -35,8 +35,8 @@ export class NotificationComponent implements OnInit {
   }
 
   public closeNitif(): void {
-    console.log(this.close)
-    this.close.nativeElement.style.right = '-100%';
+    this.visible = false;
+
   }
 
 

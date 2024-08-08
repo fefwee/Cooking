@@ -1,8 +1,8 @@
-import {Component, Input, OnInit,} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output,} from '@angular/core';
 import {FormBuilder, FormGroup, FormArray, Validators} from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {GetRecipeService} from '../../../services/get-recipe.service';
-import {RecipeSingle} from "../../../types/types";
+import {Recipe, RecipeSingle} from "../../../types/types";
 
 @Component({
   selector: 'app-form-recipe',
@@ -12,6 +12,7 @@ import {RecipeSingle} from "../../../types/types";
 export class FormRecipeComponent implements OnInit {
 
   @Input() preloadData: boolean = true;
+  @Output() OnSubmit = new EventEmitter<Recipe>();
   public title: string = 'Создание рецепта';
 
   public createRecipeForm!: FormGroup;
@@ -26,7 +27,7 @@ export class FormRecipeComponent implements OnInit {
     },
     body: "",
     comments: [],
-    cookingSteps: [],
+    cookingSteps:  [{ title: '', description: '' }],
     createdOn: "",
     foodValue: {
       calories: 0,
@@ -36,7 +37,7 @@ export class FormRecipeComponent implements OnInit {
     },
     id: "",
     image: "",
-    ingredients: [],
+    ingredients:[{ title: '', description: '' }],
     tags: [],
     timeCooking: 0,
     title: "",
@@ -57,10 +58,11 @@ export class FormRecipeComponent implements OnInit {
         next: (value: RecipeSingle) => {
           this.recipe = value;
           this.createForm(this.recipe);
-        }
+        },
       });
+    } else {
+      this.createForm(this.recipe);
     }
-    this.createForm(this.recipe);
   }
 
 
@@ -112,10 +114,11 @@ export class FormRecipeComponent implements OnInit {
     this.ingredients.push(this.createIngredient());
   }
 
-
   onSave() {
     const formData = this.createRecipeForm.value;
-    console.log('Данные формы:', formData);
+    this.OnSubmit.emit(formData);
   }
+
+
 
 }

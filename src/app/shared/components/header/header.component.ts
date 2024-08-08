@@ -24,12 +24,10 @@ export class HeaderComponent implements  OnInit{
     expiresIn: null
   }
 
-  public status: boolean = false;
   public activeBlock: boolean = false;
 
 
   constructor(
-    private authService: AuthUserService,
     private store: Store) {
   }
 

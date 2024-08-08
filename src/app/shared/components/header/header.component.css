@@ -1,15 +1,15 @@
-header {
-  width: 100%;
-  border-bottom: 1px solid rgba(242, 242, 242, 1);
+.header li {
+  cursor: pointer;
 }
-
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-height: 110px;
-
   position: relative;
+  width: 100%;
+  border-bottom: 1px solid rgba(242, 242, 242, 1);
+
 }
 
 .flex_header {
@@ -56,16 +56,16 @@ header {
 }
 
 .header_bottom_block {
+  min-width:224px;
   position: absolute;
+  z-index:1000;
   top: 100%;
-  right: 0;
-  border: 1px solid rgba(243, 244, 246, 1);
-  border-radius: 6px;
-  cursor: pointer;
+  background-color:rgba(255, 255, 255, 1);
+  border-radius:6px;
 }
 
 .header_bottom_block ul li {
-  padding: 14px;
+  padding: 12px 0 12px 16px;
   font-size: 14px;
   width: 100%;
 }
@@ -76,4 +76,48 @@ header {
 
 .header_bottom_block ul li:not(:last-child) {
   border-bottom: 1px solid rgba(242, 242, 242, 1);
+}
+.open_btn{
+  padding: 9px 18px;
+  border-radius:8px;
+}
+.exit_btn{
+  color:red;
+}
+
+.flex_user{
+  display: flex;
+  flex-direction: column;
+}
+.flex_user span{
+  margin-bottom: 3px;
+}
+.user_admin{
+  display: flex;
+  flex-direction: column;
+}
+.user_admin p:not(:last-child){
+  margin-bottom: 8px;
+}
+.header_user_descriptiion{
+  display: flex;
+  align-items: center;
+}
+.logo_user{
+  width: 41px;
+  height: 41px;
+  margin:0 17px 0 24px;
+}
+.logo_user img {
+  width: 100%;
+  height: 100%;
+  border-radius:50px;
+}
+.user_name{
+  font-size: 14px;
+  font-weight: 600;
+}
+.user_username{
+  font-size: 12px;
+  color: rgba(144, 144, 144, 1);
 }

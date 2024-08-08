@@ -4,5 +4,7 @@ export const environment = {
   register:"https://evo-academy.wckz.dev/api/cooking-blog/users/registration",
   getRecipe:"https://evo-academy.wckz.dev/api/cooking-blog/posts",
   getRecipeId:"https://evo-academy.wckz.dev/api/cooking-blog/posts/",
-  getAllUsers:"https://evo-academy.wckz.dev/api/cooking-blog/users/"
+  getAllUsers:"https://evo-academy.wckz.dev/api/cooking-blog/users/",
+  createRecipe:"https://evo-academy.wckz.dev/api/cooking-blog/posts/create",
+  updateRecipe:"https://evo-academy.wckz.dev/api/cooking-blog/posts/"
 };

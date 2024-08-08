@@ -10,6 +10,10 @@
   border-radius: 50px;
 }
 
+.title {
+  margin-top: 80px;
+}
+
 .logo h6 {
   font-size: 16px;
   font-style: normal;
@@ -19,13 +23,17 @@
 }
 
 .user_block {
-  margin-top: 48px;
+  margin: 48px 0 64px 0;
   display: flex;
 }
 
 .time {
   border-right: 1px solid rgba(0, 0, 0, 0.10);
   border-left: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.time img, .icon img {
+  width: 24px;
 }
 
 .box {
@@ -38,22 +46,47 @@
   padding: 0 29px;
 }
 
-.print img {
-  padding: 28px;
-  background-color: #E7FAFE;
-  border-radius: 50px;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  margin-bottom: 16px;
-}
-
 .print_box {
   display: flex;
 }
 
-.print_box img {
-  margin-right: 30px;
+.print_box small {
+  margin-top: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+
+}
+
+.food_values {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+}
+
+.icon_detail {
+  width: 80px;
+  height: 80px;
+  border-radius: 50px;
+  background-color: rgba(231, 250, 254, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon_detail img {
+  width: 24px;
+}
+
+.favorite, .print, .share {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.favorite, .print, .share:not(:last-child) {
+  margin-right: 38px;
 }
 
 .sub_container {
@@ -112,8 +145,7 @@
   justify-content: space-between;
   width: 100%;
   padding: 16px 16px 16px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.10);
-;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.10);;
 }
 
 .image_block {
@@ -121,10 +153,12 @@
 }
 
 .values {
+  width: 100%;
   position: absolute;
   top: 95%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 .food {
@@ -138,13 +172,20 @@
 }
 
 .ingridient_list {
-
-  max-width: 840px;
+  width: 840px;
   margin-top: 48px;
+}
+
+.ingridient_list h4 {
+  margin-bottom: 32px;
 }
 
 .ingridient_box h3 {
   text-align: start;
+  font-size: 36px;
+  font-weight: 600;
+  text-align: left;
+
 }
 
 .ingridient_box {
@@ -155,7 +196,12 @@
   display: flex;
   align-items: center;
   padding: 32px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.round label {
+  font-size: 18px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
 }
 
 .other_recipe {
@@ -174,15 +220,24 @@
 }
 
 .select_section {
-  margin-top: 80px;
+  margin: 80px 0 150px 0;
   display: flex;
+  justify-content: space-between;
 }
 
 
-
-.checlStr:checked+.labelCheck {
+.checlStr:checked + .labelCheck {
   color: rgba(218, 211, 211, 0.6);
-  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  text-decoration-line: line-through;
+
+}
+
+.checlStr2:checked + .labelCheck2 {
+  color: rgba(218, 211, 211, 0.6);
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -192,9 +247,8 @@
 }
 
 
-
 [type=checkbox] {
-  width: 24px;
+  min-width: 24px;
   height: 24px;
   color: #3D9A25;
   vertical-align: middle;
@@ -207,44 +261,71 @@
   background-color: #FFFFFF;
   cursor: pointer;
   margin-right: 24px;
+  position: relative;
 }
-
-
 
 [type=checkbox]::before {
   content: "";
-  color: transparent;
   display: block;
-  width: inherit;
-  height: inherit;
-  border-radius: inherit;
-  border: 0;
-  background-color: transparent;
-  background-size: contain;
-  box-shadow: inset 0 0 0 1px #CCD3D8;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  box-shadow: inset 0 0 0 2px #CCD3D8;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-[type=checkbox]:checked {
-  background-color: currentcolor;
+[type=checkbox]::after {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  position: absolute;
+  top: 4px;
+  left: 9px;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 [type=checkbox]:checked::before {
+  background-color: #3D9A25;
   box-shadow: none;
 }
 
+[type=checkbox]:checked::after {
+  opacity: 1;
+}
+
+.steps h2 {
+  font-size: 36px;
+  font-weight: 600;
+  text-align: left;
+}
+
 .header_title {
-  color: #000;
+  color: rgba(0, 0, 0, 1);
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   letter-spacing: -0.48px;
 }
+
 .header_title:checked {
-  color: #f7eded;
+  color: rgba(0, 0, 0, 0.6);
   font-size: 24px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
-  letter-spacing: -0.48px;
+}
+
+.header_desc {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.6);
+
+}
+.steps_section{
+  margin-bottom: 150px;
 }

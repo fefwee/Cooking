@@ -1,7 +1,7 @@
 <div class="container">
   <section class="container_detail" *ngIf="recipe ">
     <div class="sub_container">
-      <div>
+      <div class="title">
         <h1>{{ recipe.title }}</h1>
         <div class="user_block">
           <div class="logo flex">
@@ -25,17 +25,23 @@
         </div>
       </div>
       <div class="print_box">
-        <div class="print print">
-          <img src="../../../../assets/star.png" alt=""/>
-          <p>В ИЗБРАННОЕ</p>
+        <div class=" favorite">
+          <div class="icon_detail">
+            <img src="../../../../assets/star.png" alt=""/>
+          </div>
+          <small>В ИЗБРАННОЕ</small>
         </div>
-        <div class="print print">
-          <img src="../../../../assets/printer.png" alt=""/>
-          <p (click)="printPage()">РАСПЕЧАТАТЬ</p>
+        <div class="print">
+          <div class="icon_detail">
+            <img src="../../../../assets/printer.png" alt=""/>
+          </div>
+          <small (click)="printPage()">РАСПЕЧАТАТЬ</small>
         </div>
-        <div class="share print">
-          <img src="../../../../assets/share.png" alt=""/>
-          <p (click)="shareRecipe()">ПОДЕЛИТЬСЯ</p>
+        <div class="share ">
+          <div class="icon_detail">
+            <img src="../../../../assets/share.png" alt=""/>
+          </div>
+          <small (click)="shareRecipe()">ПОДЕЛИТЬСЯ</small>
         </div>
       </div>
     </div>
@@ -48,23 +54,23 @@
       </div>
       <div class="description">
         <div class="description_box">
-          <h5>Пищевая ценность</h5>
+          <h4>Пищевая ценность</h4>
           <div class="nutritional">
             <div class="nutritional_flex">
               <span>Калории</span>
-              <p *ngIf="recipe">{{ recipe.foodValue.calories }}</p>
+              <p *ngIf="recipe" class="food_values">{{ recipe.foodValue.calories }} ккал</p>
             </div>
             <div class="nutritional_flex">
               <span>Жиры</span>
-              <p>{{ recipe.foodValue.fats }}</p>
+              <p class="food_values">{{ recipe.foodValue.fats }} г</p>
             </div>
             <div class="nutritional_flex">
               <span>Углеводы</span>
-              <p>{{ recipe.foodValue.carbohydrates }}</p>
+              <p class="food_values">{{ recipe.foodValue.carbohydrates }} г</p>
             </div>
             <div class="nutritional_flex">
               <span>Белки</span>
-              <p>{{ recipe.foodValue.proteins }}</p>
+              <p class="food_values">{{ recipe.foodValue.proteins }} г</p>
             </div>
           </div>
           <p class="values">Значения приблизительные</p>
@@ -78,38 +84,36 @@
       have enough energy to complete our routine tasks.
     </h6>
   </section>
-
   <section class="select_section" *ngIf="recipe ">
-    <!--  <div class="ingridient_box">
-        <h3>Ингредиенты</h3>
-        <div class="ingridient_list">
-          <h5>Что вам пригодиться</h5>
-          <div *ngFor="let item of selectRecipe">
-            <div class="round">
-              <input type="checkbox" id="checkbox" class="checlStr" />
-              <label for="checkbox" class="labelCheck">{{ item.title }}</label>
-            </div>
+    <div class="ingridient_box">
+      <h3>Ингредиенты</h3>
+      <div class="ingridient_list">
+        <h4>Что вам пригодится</h4>
+        <div *ngFor="let item of recipe.ingredients">
+          <div class="round">
+            <input type="checkbox" class="checlStr"/>
+            <label for="checkbox" class="labelCheck">{{ item.title }} {{ item.description }}</label>
           </div>
         </div>
-      </div>-->
+      </div>
+    </div>
     <div class="other_recipe">
       <app-other-recipe></app-other-recipe>
     </div>
   </section>
 
-  <section *ngIf="recipe ">
+  <section *ngIf="recipe " class="steps_section">
     <div class="steps">
-      <h3>Шаги приготовления</h3>
+      <h2>Шаги приготовления</h2>
       <div class="ingridient_list">
-        <h5>Что вам пригодиться</h5>
-        <div *ngFor="let item of selectRecipe; let index = index">
+        <div *ngFor="let item of recipe.cookingSteps; let index = index">
           <div class="round">
-            <input type="checkbox" id="checkbox" class="checlStr"/>
-            <label for="checkbox" class="labelCheck"
+            <input type="checkbox" class="checlStr2"/>
+            <label class="labelCheck2"
             >
               <div>
-                <p class="header_title">{{ item.header }}</p>
-                <p>{{ item.title }}</p>
+                <h4 class="header_title">{{index+1}}. {{ item.title }}</h4>
+                <p class="header_desc">{{ item.description }}</p>
               </div>
             </label
             >
@@ -122,7 +126,6 @@
     <app-delicious-recipes [forDetail]=true></app-delicious-recipes>
   </section>
   <section *ngIf="recipe ">
-    <h3>Комментарии</h3>
     <app-comments [comments]="comments"></app-comments>
     <div *ngFor="let item of recipe.comments">
       <div>

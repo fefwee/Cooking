@@ -12,15 +12,18 @@
           <label class="title">
             <p>Название рецепта</p>
           </label>
-          <div class="max_field input">
+          <div class="max_field input position_field">
             <input pInputText formControlName="nameRecipe" value="{{preloadData && recipe.title}}"/>
+            <span class="err_img"
+                  *ngIf="!createRecipeForm.controls['nameRecipe'].valid && createRecipeForm.controls['nameRecipe'].touched">
+            </span>
           </div>
         </div>
         <div class="input_field">
           <label class="title">
             <p>Краткое описание</p>
           </label>
-          <div class="max_field input">
+          <div class="max_field input position_field">
             <textarea
               rows="2"
               cols="30"
@@ -28,6 +31,9 @@
               formControlName="descRecipe"
               value="{{preloadData && recipe.body}}"
             ></textarea>
+            <span class="err_img"
+                  *ngIf="!createRecipeForm.controls['descRecipe'].valid && createRecipeForm.controls['descRecipe'].touched">
+            </span>
             <p>Опишите о чем ваш рецепт</p>
           </div>
         </div>
@@ -40,52 +46,70 @@
           <label class="title">
             <p>Категория</p>
           </label>
-          <div class="min_field">
+          <div class="min_field position_field">
             <input pInputText formControlName="categories" value="{{preloadData && recipe.tags[0]}}"/>
+            <span class="err_img"
+                  *ngIf="!createRecipeForm.controls['categories'].valid && createRecipeForm.controls['categories'].touched">
+            </span>
           </div>
         </div>
         <div class="input_field">
           <label class="title">
             <p>Время приготовления</p>
           </label>
-          <div class="min_field">
+          <div class="min_field position_field">
             <input pInputText formControlName="timeCooking" value="{{preloadData && recipe.timeCooking}}"/>
+            <span class="err_img"
+                  *ngIf="!createRecipeForm.controls['timeCooking'].valid && createRecipeForm.controls['timeCooking'].touched">
+            </span>
           </div>
         </div>
         <div class="input_field">
           <label class="title">
             <p>Белки</p>
           </label>
-          <div class="max_field input">
+          <div class="max_field input position_field">
             <input pInputText formControlName="belki" value="{{preloadData && recipe.foodValue.proteins}}"/>
+            <span class="err_img"
+                  *ngIf="!createRecipeForm.controls['belki'].valid && createRecipeForm.controls['belki'].touched">
+            </span>
           </div>
         </div>
         <div class="input_field">
           <label class="title">
             <p>Жиры</p>
           </label>
-          <div class="min_field">
+          <div class="min_field position_field">
             <input pInputText formControlName="fats" value="{{preloadData && recipe.foodValue.fats}}"/>
+            <span class="err_img"
+                  *ngIf="!createRecipeForm.controls['fats'].valid && createRecipeForm.controls['fats'].touched">
+            </span>
           </div>
         </div>
         <div class="input_field">
           <label class="title">
             <p>Углеводы</p>
           </label>
-          <div class="min_field">
+          <div class="min_field position_field">
             <input pInputText formControlName="carbohydrates"
                    value="{{preloadData && recipe.foodValue.carbohydrates}}"/>
+            <span class="err_img"
+                  *ngIf="!createRecipeForm.controls['carbohydrates']?.valid && createRecipeForm.controls['carbohydrates']?.touched">
+            </span>
           </div>
         </div>
         <div class="input_field">
           <label class="title">
             <p>Калории</p>
           </label>
-          <div class="min_field">
+          <div class="min_field position_field">
             <input pInputText formControlName="calories" value="{{preloadData && recipe.foodValue.calories}}"/>
+            <span class="err_img"
+                  *ngIf="!createRecipeForm.controls['calories']?.valid && createRecipeForm.controls['calories']?.touched">
+            </span>
           </div>
         </div>
-        <div class="column">
+        <div class="column detail_info">
           <h5>Детальная информация</h5>
           <p>Детально опишите первый шаг вашего рецепта</p>
         </div>
@@ -95,21 +119,27 @@
               <label class="title">
                 <p>Краткое действие</p>
               </label>
-              <div class="min_field">
+              <div class="min_field position_field">
                 <input pInputText formControlName="firstStep"/>
+                <span class="err_img"
+                      *ngIf="!createRecipeForm.controls['firstStep']?.valid && createRecipeForm.controls['firstStep']?.touched">
+            </span>
               </div>
             </div>
             <div class="input_field">
               <label class="title">
                 <p>Описание</p>
               </label>
-              <div class="max_field">
+              <div class="max_field position_field">
                 <textarea
                   rows="1"
                   cols="20"
                   pInputTextarea
                   formControlName="descFirstStep"
                 ></textarea>
+                <span class="err_img"
+                      *ngIf="!createRecipeForm.controls['descFirstStep']?.valid && createRecipeForm.controls['descFirstStep']?.touched">
+            </span>
               </div>
             </div>
           </div>
@@ -126,7 +156,7 @@
               <label class="title">
                 <p>Название ингредиента</p>
               </label>
-              <div class="min_field">
+              <div class="min_field position_field">
                 <input pInputText formControlName="nameIngredient"/>
               </div>
             </div>
@@ -134,13 +164,15 @@
               <label class="title">
                 <p>Описание</p>
               </label>
-              <div class="max_field">
+              <div class="max_field position_field">
                 <textarea
                   rows="1"
                   cols="20"
                   pInputTextarea
                   formControlName="descIngredient"
-                ></textarea>
+                  rows="5"
+                  cols="30"
+                  pInputTextarea ></textarea>
               </div>
             </div>
           </div>
@@ -149,7 +181,12 @@
           <button type="button" (click)="addIngredient()" class="btn_blue">Добавить еще</button>
         </div>
       </div>
-      <button class="btn_blue" (click)="onSave()">Отправить рецепт</button>
+      <div class="send_btn">
+      <button class="button_subm" (click)="onSave()">
+        <i class="icon fas fa-search"><img src="../../../../assets/Mai1l.png" alt=""></i>
+        <span class="text">{{ recipe.id ? 'Редактировать рецепт':'Отправить рецепт'}}</span>
+      </button>
+      </div>
     </form>
   </div>
 </div>

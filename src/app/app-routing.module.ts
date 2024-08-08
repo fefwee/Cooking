@@ -1,6 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {ErrorComponent} from "./shared/components/error/error.component";
+import {NoaccessComponent} from "./shared/components/noaccess/noaccess.component";
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
       import('./pages/administration/administration.module').then(
         (m) => m.AdministrationModule
       ),
+  },
+  {
+    path: 'noaccess',
+    component: NoaccessComponent
   },
   {
     path: '**',

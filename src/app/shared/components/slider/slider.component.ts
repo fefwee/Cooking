@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {GetRecipeService} from "../../../services/get-recipe.service";
 import {Recipe} from "../../../types/types";
 import {Router} from "@angular/router";
@@ -8,10 +8,14 @@ import {Router} from "@angular/router";
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.css']
 })
-export class SliderComponent implements OnInit {
+export class SliderComponent implements OnInit,OnDestroy {
 
 
   @ViewChild('wrapper') myElement: any;
+
+  private autoSlideInterval: any;
+  public currentIndex = 0;
+  public slides: Recipe[] = [];
 
   constructor(
     private getRecipeService: GetRecipeService,
@@ -26,13 +30,13 @@ export class SliderComponent implements OnInit {
         if (this.slides.length > 0) {
           this.slides.shift();
         }
+
+        this.autoSlideInterval = setInterval(() => {
+          this.nextSlide();
+        }, 5000);
       }
-    })
+    });
   }
-
-  public currentIndex = 0;
-
-  public slides: Recipe[] = [];
 
 
   public prevSlide() {
@@ -44,8 +48,14 @@ export class SliderComponent implements OnInit {
   }
 
 
-  public navigateToRecipe(id:string) {
+  public navigateToRecipe(id: string) {
     this.route.navigate([`/recipes//${id}`])
   };
+
+  ngOnDestroy(): void {
+    if (this.autoSlideInterval) {
+      clearInterval(this.autoSlideInterval);
+    }
+  }
 
 }

@@ -1,0 +1,125 @@
+.user_container{
+  max-width:1216px;
+  margin: 0 auto;
+}
+
+.logo {
+  max-width: 64px;
+  max-height: 64px;
+  margin-right: 20px;
+
+}
+.user_header{
+  margin: 48px 0 46px 0;
+}
+
+.logo img {
+  border-radius: 50px;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex_section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user_name{
+  display: flex;
+  align-items: center;
+}
+.user_name h4 {
+  margin-right: 14px;
+}
+.block_role_user{
+  display: flex;
+  align-items: center;
+  background-color:rgba(219, 234, 254, 1);
+  border-radius:4px;
+
+}
+.user_active{
+  width: 6px;
+  height: 6px;
+  border-radius: 50px;
+  background-color:rgba(96, 165, 250, 1);
+  margin: 8px;
+}
+.user_role{
+  color:rgba(30, 64, 175, 1);
+  padding:6px 6px 6px 0;
+}
+.time_create{
+  margin: 3px 0;
+}
+.user_recipe_section{
+  margin-bottom: 104px;
+}
+.user_status ul{
+  display: flex;
+  align-items: center;
+}
+.user_status ul li {
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+  min-width: 392px;
+  border-radius: 8px;
+  padding: 24px;
+}
+.user_status ul li h6 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+.user_status ul li:not(:last-child) {
+  margin-right: 20px;
+}
+.user_recipe h6{
+  padding-bottom: 20px;
+  border-bottom:1px solid rgba(229, 231, 235, 1);
+}
+.recipe_block_user{
+  margin-top: 28px;
+}
+.recipe_block_user {
+  display: grid;
+  grid-template-columns:1fr 1fr 1fr 1fr;
+  gap:32px;
+}
+
+.single_recipe_block li img{
+  max-width:280px;
+  min-height: 196px;
+  border-radius: 8px;
+}
+.title_recipe p{
+  font-weight: 500;
+  color:black;
+  padding: 8px 0 3px 0;
+}
+.user_information{
+  margin-top: 53px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
+  margin-bottom: 200px;
+}
+.user_information h6 {
+  padding: 24px 26px;
+  border-bottom: 1px solid rgba(229, 231, 235, 1);
+}
+.list_info_user li{
+  display: flex;
+  align-items: center;
+}
+.list_info_user li p{
+  min-width:378px;
+}
+.list_info_user li:not(:last-child){
+  border-bottom: 1px solid rgba(229, 231, 235, 1);
+  padding: 20px 24px;
+}
+.list_info_user li:last-child{
+  padding: 20px 24px 80px 24px;
+}
